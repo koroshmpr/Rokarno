@@ -1,0 +1,91 @@
+// Fonts
+
+//@import 'modules/bootstrap-icons';
+
+//custom classes
+@import "custom/variables";
+
+// Bootstrap
+@import 'modules/bootstrap';
+
+//animate.css
+:root {
+  --animate-duration: 1s;
+  --animate-delay: .5s;
+  --animate-repeat: 1;
+}
+
+//custom base classes
+@import "custom/base";
+
+// header
+@import "custom/header";
+@import "custom/button";
+@import "custom/portfolio";
+@import "custom/costomize-form";
+@import "custom/blog";
+@import "custom/forms";
+@import "responsive";
+
+.hero_slider {
+  height: 100vh;
+  width: 100%;
+  .swiper-wrapper , .swiper-slide {
+    height: 100%;
+  }
+}
+//paggination
+.page-numbers {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  padding: 4px;
+  gap:0 6px ;
+  a.page-numbers .page-number {
+    font-size:1.4rem !important;
+    transition:color 0.3s linear;
+    color: rgb(89 89 89 / 55%);
+    &:hover {
+      color:$primary
+    }
+  }
+  a.next , a.prev {
+    transition:all 0.3s linear;
+    &:hover {
+      transform:scale(1.2);
+    }
+  }
+  span.page-numbers.current .page-number , a.next , a.prev  {
+    font-size:1.4rem !important;
+    color:$primary;
+  }
+}
+.swiper-slide {
+  .animate-img {
+    transition: all 0.8s ease-out;
+    opacity: 0 !important;
+    background-attachment: fixed !important;
+    transform-origin: center; /* Set the initial transform origin to center */
+  }
+
+  .animate-img-x {
+    width: 0 !important;
+  }
+
+  .animate-img-y {
+    height: 0 !important;
+  }
+
+  &.swiper-slide-active {
+    .animate-img-x {
+      width: 100% !important;
+      opacity: 1 !important;
+    }
+
+    .animate-img-y {
+      height: 100% !important;
+      opacity: 1 !important;
+    }
+  }
+}

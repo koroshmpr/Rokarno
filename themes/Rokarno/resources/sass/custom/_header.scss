@@ -1,0 +1,14 @@
+body.scrolled {
+
+}
+.navbar-nav {
+  .menu-item {
+    padding: 0!important;
+  }
+}
+.current-menu-item a ,
+current_page_item a {
+  color:$dark!important;
+  border-bottom: 2px solid $dark;
+  font-weight: bold;
+}

@@ -1,0 +1,94 @@
+@include media-breakpoint-up(lg) {
+  .h-lg-35 {
+    height:35%
+  }
+  .display-lg , .display-lg * {
+    font-size:8rem!important;
+    line-height:0.8;
+  }
+  .h-lg-50 {
+    height:50% !important
+  }
+  .h-lg-75 {
+    height:75% !important;
+  }
+  #mainHeader {
+    width: 150px;
+    max-width: 200px;
+    top: 70px;
+    right: 50px;
+  }
+}
+@include media-breakpoint-down(lg) {
+  .opacity-lg-25 {
+    opacity:0.25
+  }
+  #mainHeader {
+    top: 30px;
+    left: 20px;
+  }
+}
+@include media-breakpoint-down(xxl) {
+  .display-lg {
+    font-size: 8rem;
+    line-height: 0.8;
+  }
+}
+@include media-breakpoint-up(xxl) {
+  .display-lg , .display-lg * {
+    font-size:13rem!important;
+    line-height:0.8;
+  }
+}
+@include media-breakpoint-down(sm) {
+  .fs-1 { font-size: calc(1.325rem + 1.4vw) !important; }
+  .fs-2 { font-size: calc(1.275rem + 0.8vw) !important; }
+  .fs-3 { font-size: calc(1.25rem + 0.5vw) !important;  }
+  .fs-4 { font-size: calc(1.225rem + 0.2vw) !important; }
+  .fs-5 { font-size: 0.9rem !important;  }
+  .fs-6, p, span {
+    font-size: 0.75rem !important;
+    line-height: 1.7;
+  }
+  small, .small { font-size: 0.875rem !important; }
+}
+@include media-breakpoint-up(md) {
+
+}
+@include media-breakpoint-down(md) {
+  .display-lg , .display-lg * {
+    font-size:5.5rem!important;
+    line-height:0.8;
+  }
+  .product-card {
+    .modal {
+      .modal-body {
+        padding-left: 10px;
+        padding-right: 0;
+      }
+    }
+  }
+  .small-md-down {
+    font-size: $small-font-size !important;
+  }
+}
+@media (min-width:2400px){
+  .display-1 { font-size: 8rem!important;  }
+  .display-2 { font-size: 7rem!important;  }
+  .display-3 { font-size: 6rem!important;  }
+  .display-4 { font-size: 5.5rem!important;}
+  .display-5 { font-size: 5rem!important;  }
+  .display-6 { font-size: 4rem!important;  }
+  .fs-1 , h1 { font-size: 5rem!important;  }
+  .fs-2 ,h2 {  font-size: 4rem!important;  }
+  .fs-3 ,h3 {  font-size: 3.5rem!important; }
+  .fs-4 ,h4 { font-size: 2.5rem!important;  }
+  .fs-5 , h5 {font-size: 1.8rem !important; }
+  .fs-6, h6,  p, span, div ,a {
+    font-size: 1.4rem !important;
+    line-height: 1.7;
+  }
+  small, .small { font-size: 1rem !important;  }
+  .container { max-width: 1900px; }
+}
+

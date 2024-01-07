@@ -1,0 +1,68 @@
+.design-img , .color-list li , .tile-size li , .reset-btn , .tile-shape li  {
+  transition: transform 0.3s ease-out;
+  cursor: pointer;
+  &:hover {
+  transform: translateY(-2px);
+  }
+}
+.color-list {
+  li {
+    width: 20px;
+    height: 20px;
+  }
+}
+.tile-size , .tile-shape {
+  li {
+    border: 1px solid rgba(128, 128, 128, 0.20);
+    padding: 2px 7px;
+    transition: all 0.2s linear;
+    &:hover , &.active {
+      background-color: $dark;
+      color:white;
+    }
+  }
+}
+#tile {
+  padding:5px;
+  transition: background-color 0.3s ease-out;
+  width: 400px;
+  aspect-ratio: 1;
+  border: 1px solid $info;
+  gap: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: hidden;
+  justify-content: center;
+  img {
+    transition: all 0.3s ease-out;
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+}
+.choose-tile {
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.reset-btn {
+  width: 20px;
+  height: 20px;
+}
+.choose-tile__container {
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  padding: 7px 15px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  .percentage-input {
+    width: 50px;
+    border: 0.5px solid rgba(128, 128, 128, 0.21);
+  }
+}
