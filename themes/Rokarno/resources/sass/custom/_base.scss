@@ -1,21 +1,29 @@
-html, body  {
+ body {
+   height:100%;
+}
+html {
   margin-top:0 !important;
-  overflow-x: hidden;
 }
-.page-transition {
-  opacity: 0;
-  background:$secondary;
-  transform: translateX(100%);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
+//.page-transition {
+//  opacity: 0;
+//  background:$secondary;
+//  transform: translateX(100%);
+//  transition: opacity 1s ease-out, transform 1s ease-out;
+//}
 a , .no-decoration {
   text-decoration: none;
 }
 .overflow-scroll-y {
   overflow-y: scroll!important;
 }
+.ratio-1 {
+  aspect-ratio:1
+}
 .top-75 {
   top:75%;
+}
+.top-25 {
+  top:25%
 }
 .h-65 {
   height: 65% !important;
@@ -52,7 +60,7 @@ a , .no-decoration {
 }
 // SCROLL bar styles
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {

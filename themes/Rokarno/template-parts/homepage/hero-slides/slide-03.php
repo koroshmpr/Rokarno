@@ -4,7 +4,7 @@ $slide3 = get_field('slide-03');
 
 <div class="swiper-slide bg-secondary">
     <div class="d-flex flex-column justify-items-lg-between justify-content-end h-100 align-items-end">
-        <div class="col-lg-6 h-auto h-lg-50">
+        <div class="col-lg-6 col-12 h-50">
             <div class="animate-img animate-img-x h-100" style="background: url('<?php echo $slide3['img']['url'] ?? ''; ?>');"></div>
         </div>
 <!--        <img class="col-lg-6 object-fit h-auto h-lg-50" src="--><?php //= $slide3['img']['url'] ?? ''; ?><!--"-->

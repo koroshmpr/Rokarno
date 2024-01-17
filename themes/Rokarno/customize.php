@@ -2,10 +2,16 @@
 /** Template Name: tile form */
 
 get_header(); ?>
-<section class="bg-secondary">
+<section class="bg-secondary overflow-hidden position-relative">
+ <?php get_template_part('template-parts/loop/tile-object') ?>
     <div class="container min-vh-100 py-5" id="tileTemplate">
-        <h1 class="text-center fw-bold text-white display-3 py-4" data-aos="fade-down"><?= get_the_title(); ?></h1>
-        <div class="mx-auto row align-items-center col-11 justify-content-center gap-3 border bg-white border-info border-opacity-10 p-lg-4 py-4 px-2 rounded-2" data-aos="fade-up">
+        <h1 class="text-center fw-bold text-primary display-3 py-4" data-aos="fade-down"><?= get_the_title(); ?></h1>
+        <div class="row justify-content-center mb-3">
+            <article class="col-lg-8 p-3 text-dark text-opacity-50">
+                <?php the_content(); ?>
+            </article>
+        </div>
+        <div class="mx-auto row align-items-center col-11 justify-content-center gap-3 border bg-white border-info border-opacity-10 p-lg-4 py-4 px-2" data-aos="fade-up">
             <div id="form" class="col-md-10 col-xl-7 d-flex flex-column gap-4">
                 <!--            colors-->
                 <article class="d-flex flex-wrap flex-lg-nowrap gap-4">
@@ -66,8 +72,8 @@ get_header(); ?>
 
                             <div class="choose-tile__container">
                                 <button type="button" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                        data-design="Design-<?= $i; ?>" class="choose-tile btn bg-transparent">
-                                    select
+                                        data-design="Color <?= $i; ?>" class="choose-tile btn bg-transparent">
+                                    Color <?= $i; ?>
                                 </button>
                                 <input type="number" class="percentage-input" placeholder="%" min="0" max="100">
                             </div>

@@ -72,39 +72,6 @@ function add_menu_link_class( $classes, $item, $args ) {
 
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
-//add_filter( 'walker_nav_menu_start_el', 'parent_menu_dropdown', 10, 4 );
-//function parent_menu_dropdown( $item_output, $item, $depth, $args ) {
-//
-//	$icon = get_field( 'menu_icon', $item );
-//	if ( ! empty( $item->classes ) && in_array( 'menu-item-object-custom', $item->classes ) ) {
-//		return $item_output . ' <div class="position-relative"> ' . $icon . '</div>';
-//	}
-//
-//	return $item_output;
-//}
-
-//populate gravity form
-/**
- * Populate ACF select field options with Gravity Forms forms
- */
-//function acf_populate_gf_forms_ids( $field ) {
-//	if ( class_exists( 'GFFormsModel' ) ) {
-//		$choices = [];
-//
-//		foreach ( \GFFormsModel::get_forms() as $form ) {
-//			$choices[ $form->id ] = $form->title;
-//		}
-//
-//		$field['choices'] = $choices;
-//	}
-//
-//	return $field;
-//}
-//
-//add_filter( 'acf/load_field/name=gravity_choices', 'acf_populate_gf_forms_ids' );
-
-
-
 // helper function to find a menu item in an array of items
 function wpd_get_menu_item( $field, $object_id, $items ) {
 	foreach ( $items as $item ) {
@@ -201,20 +168,21 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 
 	return $urls;
 }
-function custom_post_type_args( $args, $post_type ) {
-    // Change 'project' to the slug of your custom post type
-    if ( 'portfolio' === $post_type ) {
-        // Set the with_front parameter to false
-        $args['rewrite']['with_front'] = false;
-    }
-    if ( 'services' === $post_type ) {
-        // Set the with_front parameter to false
-        $args['rewrite']['with_front'] = false;
-    }
-    if ( 'clients' === $post_type ) {
-        // Set the with_front parameter to false
-        $args['rewrite']['with_front'] = false;
-    }
-    return $args;
-}
-add_filter( 'register_post_type_args', 'custom_post_type_args', 10, 2 );
+
+//function custom_post_type_args( $args, $post_type ) {
+//    // Change 'project' to the slug of your custom post type
+//    if ( 'portfolio' === $post_type ) {
+//        // Set the with_front parameter to false
+//        $args['rewrite']['with_front'] = false;
+//    }
+//    if ( 'services' === $post_type ) {
+//        // Set the with_front parameter to false
+//        $args['rewrite']['with_front'] = false;
+//    }
+//    if ( 'clients' === $post_type ) {
+//        // Set the with_front parameter to false
+//        $args['rewrite']['with_front'] = false;
+//    }
+//    return $args;
+//}
+//add_filter( 'register_post_type_args', 'custom_post_type_args', 10, 2 );

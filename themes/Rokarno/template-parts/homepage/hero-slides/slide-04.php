@@ -41,9 +41,9 @@ $slide4 = get_field('slide-04');
             </div>
 <!--            <img data-aos="fade-up" class="col-3 col-lg-2 object-fit" src="--><?php //= $slide4['img']['url'] ?? ''; ?><!--"-->
 <!--                 alt="--><?php //= $slide4['img']['title']; ?><!--">-->
-            <div class="col-lg-8 d-flex flex-column gap-lg-5 gap-2 justify-content-evenly align-items-lg-start col align-items-center">
+            <div class="col-lg-8 px-5 px-lg-0 d-flex flex-column gap-5 justify-content-center col justify-content-lg-evenly">
                 <h3 class="display-1 text-end fw-bold text-primary" data-aos="fade-right" data-aos-delay="700" data-aos-duration="800">Product</h3>
-                <div class="d-lg-flex d-grid gap-3 justify-content-end" data-aos="fade-right" data-aos-delay="800" data-aos-duration="800">
+                <div class="d-lg-flex d-grid gap-lg-3 gap-4" data-aos="fade-right" data-aos-delay="800" data-aos-duration="800">
                     <?php
                     // Get all products
                     $args_all_products = array(

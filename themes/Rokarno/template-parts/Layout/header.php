@@ -1,6 +1,6 @@
 <nav class="d-none d-lg-grid gap-4 justify-content-center" data-aos="fade-right" data-aos-duration="700"
      data-aos-delay="200" id="mobileMenu">
-    <a class="navbar-brand m-0 text-center" href="/">
+    <a class="navbar-brand m-0 text-center" href="https://macanagency.ir/rokarno">
         <?php
         $logoType = get_field('logo_type', 'option');
         $logoSvg = get_field('site_logo_svg', 'option');
@@ -9,7 +9,7 @@
             echo $logoSvg;
         }
         if ($logoType == 'img') { ?>
-            <img class="img-fluid" height="50" src="<?= $logoImg['url'] ?>" alt="<?= $logoImg['title'] ?>">
+            <img class="img-fluid" width="113" height="156" src="<?= $logoImg['url'] ?>" alt="<?= $logoImg['title'] ?>">
         <?php } ?>
     </a>
     <?php
@@ -18,7 +18,7 @@
     if ($menu) :
         wp_nav_menu(array(
             'theme_location' => 'headerMenuLocation',
-            'menu_class' => 'px-3 row navbar-nav gap-1 align-items-center justify-items-center',
+            'menu_class' => 'desktop-menu px-3 row navbar-nav gap-1 align-items-center justify-items-center',
             'container' => false,
             'menu_id' => 'navbarTogglerMenu',
             'item_class' => 'nav-item', // Add 'dropdown' class to top-level menu items
@@ -29,7 +29,7 @@
     ?>
 </nav>
 <nav class="d-lg-none navbar py-0">
-    <button class="btn p-0 border-0 text-white" type="button" data-bs-toggle="offcanvas"
+    <button class="btn p-0 border-0 text-white" type="button" aria-labelledby="offcanvasRight" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-nested"
              viewBox="0 0 16 16">
@@ -69,7 +69,7 @@
                     echo $logoSvg;
                 }
                 if ($logoType == 'img') { ?>
-                    <img class="img-fluid" height="50" src="<?= $logoImg['url'] ?>" alt="<?= $logoImg['title'] ?>">
+                    <img class="img-fluid" width="57" height="78" src="<?= $logoImg['url'] ?>" alt="<?= $logoImg['title'] ?>">
                 <?php } ?>
             </a>
         </div>

@@ -28,21 +28,27 @@
     }
 }
 .btn-custom {
+  transition: all 0.4s linear;
   position: relative;
-  &::after {
+  &::before {
+    transition: all 0.4s linear;
     position: absolute;
-    top:50%;
+    top:70%;
     left:50%;
     @extend .translate-middle;
     content: ' ';
-    width: 80px ;
+    width: 30% ;
     height: 2px;
     background-color: rgba(0, 0, 0, 0.29);
   }
-  //text-decoration : line-through;
-  //text-decoration-color: rgba(0, 0, 0, 0.32);
   color:white;
   padding: 15px 30px;
+  &:hover {
+    padding: 15px 0 15px 60px;
+    &::before {
+      left:35%
+    }
+  }
 }
 .btn-primary {
         color: $primary;
@@ -81,8 +87,8 @@
     }
 }
 .btn-fixed {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   bottom: 15px;
   z-index: 9;
   line-height: 2.4;

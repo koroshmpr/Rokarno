@@ -12,9 +12,15 @@
 
 <body <?php body_class('page-transition'); ?> >
 <header id="mainHeader" class="position-absolute text-white z-2">
-<?php get_template_part('template-parts/Layout/header') ?>
+<?php get_template_part('template-parts/Layout/header');
+
+//if (!is_shop() && !is_product_category()) {
+//    get_template_part('template-parts/preload/preload-fa');
+//}
+?>
+
 </header>
-<main>
+<main class="min-vh-100 bg-secondary">
 
 
 

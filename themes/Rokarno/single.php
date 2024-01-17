@@ -6,34 +6,38 @@
  *
  * @package baloochy
  */
-get_header()
-?>
-<?php
-while (have_posts()) :
-    the_post();
+
+// Check if it's a single post and not a product
+if (is_single() && !is_product()) {
+    get_header()
     ?>
-    <div class="container pt-3 pt-lg-0" id="blog">
-        <section class="row flex-column-reverse flex-lg-row py-0 py-lg-5 gap-lg-0 gap-5 justify-content-lg-between justify-content-center">
-            <div class="col-lg-6 col-12 row align-content-center gy-2">
-                <h1 class="fs-3 fw-bold text-dark">
-                    <?php the_title(); ?>
-                </h1>
-                <div class="d-inline-flex w-100 justify-content-between justify-content-lg-start">
+    <?php
+    while (have_posts()) :
+        the_post();
+        ?>
+        <div class="container pt-3 pt-lg-0" id="blog">
+            <section
+                    class="row flex-column-reverse flex-lg-row py-0 py-lg-5 gap-lg-0 gap-5 justify-content-lg-between justify-content-center">
+                <div class="col-lg-6 col-12 row align-content-center gy-2">
+                    <h1 class="fs-3 fw-bold text-dark">
+                        <?php the_title(); ?>
+                    </h1>
+                    <div class="d-inline-flex w-100 justify-content-between justify-content-lg-start">
                     <span class="text-semi-light small fw-lighter">
                         تاریخ انتشار:
                      <?php echo get_the_date('d  F , Y'); ?>
                     </span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-12 text-center text-lg-end">
-                <?php if (get_the_post_thumbnail_url()) { ?>
-                    <img src="<?php echo get_the_post_thumbnail_url() ?>"
-                         class="w-100 object-fit p-2 border border-primary" height="400"
-                         alt="<?php the_title(); ?>">
-                <?php } ?>
-            </div>
-        </section>
-        <section class="row py-5">
+                <div class="col-lg-6 col-12 text-center text-lg-end">
+                    <?php if (get_the_post_thumbnail_url()) { ?>
+                        <img src="<?php echo get_the_post_thumbnail_url() ?>"
+                             class="w-100 object-fit p-2 border border-primary" height="400"
+                             alt="<?php the_title(); ?>">
+                    <?php } ?>
+                </div>
+            </section>
+            <section class="row py-5">
                 <article class="text-justify border-bottom border-opacity-50 border-primary pb-3 text-link">
                     <?php the_content();
                     wp_reset_postdata();
@@ -54,15 +58,20 @@ while (have_posts()) :
                             /* Start the Loop */
                             while ($loop->have_posts()) :
                                 $loop->the_post(); ?>
-                                    <?php get_template_part('template-parts/blog/single-card'); ?>
-                                <?php
+                                <?php get_template_part('template-parts/blog/single-card'); ?>
+                            <?php
                             endwhile;
                         endif;
                         wp_reset_postdata(); ?>
                     </div>
                 </div>
-        </section>
-    </div>
-<?php
-endwhile;
-get_footer() ?>
+            </section>
+        </div>
+    <?php endwhile;
+    wp_reset_query();
+    get_footer();
+} // Check if it's a single product
+elseif (is_product()) {
+    wc_get_template_part('single-product');
+}
+?>
