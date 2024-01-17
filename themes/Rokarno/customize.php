@@ -4,7 +4,7 @@
 get_header(); ?>
 <section class="bg-secondary overflow-hidden position-relative">
  <?php get_template_part('template-parts/loop/tile-object') ?>
-    <div class="container min-vh-100 py-5" id="tileTemplate">
+    <div class="container py-5" id="tileTemplate">
         <h1 class="text-center fw-bold text-primary display-3 py-4" data-aos="fade-down"><?= get_the_title(); ?></h1>
         <div class="row justify-content-center mb-3">
             <article class="col-lg-8 p-3 text-dark text-opacity-50">
@@ -51,14 +51,14 @@ get_header(); ?>
                     </ul>
                 </article>
                 <!--            sizes-->
-                <article class="d-flex flex-wrap flex-lg-nowrap gap-4">
-                    <h5 class="mb-0 fs-5">Size :</h5>
-                    <ul class="list-unstyled d-flex gap-2 align-content-center mb-0 lh-2 tile-size">
-                        <li data-size="10">1x1</li>
-                        <li data-size="20" class="active">2x2</li>
-                        <li data-size="30">3x3</li>
-                    </ul>
-                </article>
+<!--                <article class="d-flex flex-wrap flex-lg-nowrap gap-4">-->
+<!--                    <h5 class="mb-0 fs-5">Size :</h5>-->
+<!--                    <ul class="list-unstyled d-flex gap-2 align-content-center mb-0 lh-2 tile-size">-->
+<!--                        <li data-size="10">1x1</li>-->
+<!--                        <li data-size="20" class="active">2x2</li>-->
+<!--                        <li data-size="30">3x3</li>-->
+<!--                    </ul>-->
+<!--                </article>-->
                 <!--            designs-->
                 <article class="d-flex flex-wrap flex-lg-nowrap gap-4">
                     <h5 class="mb-0 fs-5 lh-lg text-center text-lg-start col-auto">Design :</h5>
@@ -82,17 +82,21 @@ get_header(); ?>
                     </div>
                 </article>
                 <!--            submit form -->
-                <article class="d-flex flex-wrap flex-lg-nowrap gap-4">
-                    <button type="button" id="populateTileButton" class="btn btn-primary p-2 col-lg-3">Generate</button>
+                <article class="d-flex flex-wrap flex-lg-nowrap gap-2 align-items-center">
+                    <button type="button" id="populateTileButton" class="btn btn-primary p-2 col-lg-2">Generate</button>
+                    <button id="wallCreator" class="btn btn-primary p-2 col-lg-2">create wall</button>
                     <button type="button" id="resetButton" class="btn bg-dark rounded-circle text-white w-auto py-2 px-3">R</button>
                 </article>
             </div>
             <!--        preview-->
-            <div class="col-xl-5 row justify-content-center align-items-center">
-                <div id="tile"></div>
+            <div class="tileContainer col-xl-5 row justify-content-center align-items-center">
+                <div id="tile"></div
             </div>
         </div>
     </div>
+</section>
+<section class="container text-center pb-5">
+    <div id="wall" class="wall col-lg-6 col-11 justify-content-center mx-auto row row-cols-5 mx-0"></div>
 </section>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

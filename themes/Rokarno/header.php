@@ -20,6 +20,8 @@
 ?>
 
 </header>
+<div id="cursor"></div>
+<div id="stalker"></div>
 <main class="min-vh-100 bg-secondary">
 
 

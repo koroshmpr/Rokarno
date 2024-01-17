@@ -16,7 +16,7 @@ $image = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 
         </p>
 <!--            <a href="--><?php //= esc_url($product->get_permalink()); ?><!--"-->
 <!--               class="stretched-link btn btn-custom text-white fs-6 fw-bold">MORE</a>    -->
-        <button class="stretched-link btn btn-custom text-white fs-6 fw-bold">MORE</button>
+<!--        <button class="stretched-link btn btn-custom text-white fs-6 fw-bold">MORE</button>-->
 
     </div>
 </div>

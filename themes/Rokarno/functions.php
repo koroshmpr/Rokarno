@@ -4,13 +4,15 @@
  */
 function houger_scripts()
 {
-    //    <!-- Icons -->
-//    wp_enqueue_style('bootstrap-icons', get_template_directory_uri() . '/public/fonts/bootstrap/bootstrap-icons.css');
     wp_enqueue_style('Ravi', get_template_directory_uri() . '/public/fonts/Ravi/fontface.css', array());
     wp_enqueue_style('Play', get_template_directory_uri() . '/public/fonts/Play/fontface.css', array());
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/public/css/style.css', array());
-//    wp_style_add_data('style', 'rtl', 'replace');
+
     wp_enqueue_script('main-js', get_template_directory_uri() . '/public/js/app.js', array(), true);
+    if (is_page_template('customize.php')) {
+        // Enqueue the JavaScript file
+        wp_enqueue_script('customize-js', get_template_directory_uri() . '/public/js/costomize.js', array(), true);
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'houger_scripts' );
@@ -42,11 +44,6 @@ function baloochy_setup() {
 
 add_action( 'after_setup_theme', 'baloochy_setup' );
 
-/**
- * Custom template tags for this theme.
- */
-//require get_template_directory() . '/inc/template-tags.php';
-
 
 if ( function_exists( 'acf_add_options_page' ) ) {
 
@@ -64,12 +61,8 @@ function add_menu_link_class( $classes, $item, $args ) {
 	if ( isset( $args->link_class ) ) {
 		$classes['class'] = $args->link_class;
 	}
-
 	return $classes;
-
-
 }
-
 add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
 
 // helper function to find a menu item in an array of items
@@ -79,45 +72,9 @@ function wpd_get_menu_item( $field, $object_id, $items ) {
 			return $item;
 		}
 	}
-
 	return false;
 }
 
-function the_breadcrumb() {
-	global $post;
-	echo '<ul class="breadcrumb my-0 py-4">';
-	if (!is_home()) {
-		echo '<li class="breadcrumb-item"><a class="text-decoration-none text-semi-light" href="';
-		echo get_option('home');
-		echo '">';
-		echo 'صفحه اصلی';
-		echo '</a></li>';
-        $terms = get_the_terms( $post->ID, 'product_categories' );
-        $termName = $terms[0]->name;
-		if (is_category() || is_single() || $termName) {
-			echo '<li class="breadcrumb-item"><a class="breadcrumb-item text-white text-decoration-none" href="' . $termName->slug . '">';
-            echo $termName;
-			if (is_single()) {
-				echo '</a></li><li class="breadcrumb-item">';
-				the_title();
-				echo '</li>';
-			}
-		} elseif (is_page()) {
-			if($post->post_parent){
-				$anc = get_post_ancestors( $post->ID );
-				$title = get_the_title();
-				foreach ( $anc as $ancestor ) {
-					$output = '<li><a class="breadcrumb-item" href="'.get_permalink($ancestor).'" title="'.get_the_title($ancestor).'">'.get_the_title($ancestor).'</a></li> <li class="separator">/</li>';
-				}
-				echo $output;
-				echo '<strong title="'.$title.'"> '.$title.'</strong>';
-			} else {
-				echo '<li class="breadcrumb-item"><strong> '.get_the_title().'</strong></li>';
-			}
-		}
-	}
-	echo '</ul>';
-}
 /**
  * Disable the emoji's
  */
@@ -168,6 +125,20 @@ function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 
 	return $urls;
 }
+function custom_menu_item_classes($classes, $item, $args) {
+    // Check if the current page is a product, category, or single product page
+    if (is_product() || is_product_category() || is_singular('product')) {
+        // Check if the menu item is the "Shop" page
+        if ($item->title == 'Shop' or $item->title == 'Products' ) {
+            // Add your custom class to the classes array
+            $classes[] = 'current-menu-item';
+        }
+    }
+
+    return $classes;
+}
+
+add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
 
 //function custom_post_type_args( $args, $post_type ) {
 //    // Change 'project' to the slug of your custom post type

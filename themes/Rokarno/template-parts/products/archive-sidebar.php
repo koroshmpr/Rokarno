@@ -1,4 +1,4 @@
-<aside class="col-lg-3 px-lg-4 px-2">
+<aside class="col-lg-3 col-11 px-lg-4 px-2 order-first order-lg-last mb-5 mb-lg-0">
     <div class="row p-2 pb-1 border border-white border-opacity-25 mt-3 mt-lg-0 justify-content-end" id="category-dropdown">
         <?php
         $categories = get_terms(array(
@@ -12,21 +12,17 @@
 
         if ($categories) {
             foreach ($categories as $category) {
-                $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-                $category_id = 'category-' . $category->term_id; // Generate a unique ID for each category
-                $category_class = ($category->term_id === $current_category_id) ? 'border-end border-5 border-primary border-opacity-75 bg-opacity-75' : 'bg-opacity-50'; // Add class for the current category
-                ?>
+                $category_class = ($category->term_id === $current_category_id) ? 'border-end border-5 border-primary border-opacity-75 bg-opacity-75' : 'bg-opacity-25'; // Add class for the current category
 
-                <a href="<?= esc_url(get_term_link($category, $category->taxonomy)); ?>"
-                   class="my-1 <?= $category_class; ?> bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">
-                    <h6 class="category-title fw-bold mb-0 fs-6"><?= $category->name; ?></h6>
-<!--                    <p class="mb-0 text-primary small fw-bold pe-2 ms-auto">-->
-<!--                        --><?php //= $category->count; ?>
-<!--                        <span class="ps-1">کالا</span>-->
-<!--                    </p>-->
-                </a>
+                // Determine if the current category is the current one
+                $is_current_category = ($category->term_id === $current_category_id);
 
-                <?php
+                echo ($is_current_category) ? '<div' : '<a';
+                echo ($is_current_category) ? '' : ' href="' . esc_url(get_term_link($category, $category->taxonomy)) . '"';
+                echo ' class="my-1 ' . $category_class . ' bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+                echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $category->name . '</h6>';
+                echo ($is_current_category) ? '</div>' : '</a>';
+
                 // Get child categories
                 $children = get_terms(array(
                     'taxonomy' => 'product_cat',
@@ -37,21 +33,20 @@
 
                 if ($children) {
                     foreach ($children as $subcat) {
-                        $thumbnail_id = get_term_meta($subcat->term_id, 'thumbnail_id', true);
-                        $subcat_id = 'subcat-' . $subcat->term_id; // Generate a unique ID for each subcategory
-                        $subcat_class = ($subcat->term_id === $current_category_id) ? 'border-end border-5 border-primary border-opacity-75 bg-opacity-75' : 'bg-opacity-50'; // Add class for the current subcategory
-                        ?>
+                        $subcat_class = ($subcat->term_id === $current_category_id) ? 'border-end border-5 border-primary border-opacity-75 bg-opacity-75' : 'bg-opacity-25'; // Add class for the current subcategory
 
-                        <a href="<?= esc_url(get_term_link($subcat, $subcat->taxonomy)); ?>"
-                           class="my-1 col-11 <?= $subcat_class; ?> bg-white text-primary bg-opacity-50 d-flex justify-content-between align-items-center p-3 overflow-hidden">
-                            <h6 class="category-title fw-bold mb-0 fs-6"><?= $subcat->name; ?></h6>
-                            <p class="mb-0 text-primary small fw-bold pe-2 ms-auto">
-                                <?= $subcat->count; ?>
-                                <span class="ps-1">کالا</span>
-                            </p>
-                        </a>
+                        // Determine if the current subcategory is the current one
+                        $is_current_subcategory = ($subcat->term_id === $current_category_id);
 
-                        <?php
+                        echo ($is_current_subcategory) ? '<div' : '<a';
+                        echo ($is_current_subcategory) ? '' : ' href="' . esc_url(get_term_link($subcat, $subcat->taxonomy)) . '"';
+                        echo ' class="my-1 col-11 ' . $subcat_class . ' bg-white text-primary bg-opacity-50 d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+                        echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $subcat->name . '</h6>';
+                        echo '<p class="mb-0 text-primary small fw-bold pe-2 ms-auto">';
+                        echo $subcat->count . '<span class="ps-1">کالا</span>';
+                        echo '</p>';
+                        echo ($is_current_subcategory) ? '</div>' : '</a>';
+
                         wp_reset_postdata(); // Reset Query for child categories
                     }
                 }

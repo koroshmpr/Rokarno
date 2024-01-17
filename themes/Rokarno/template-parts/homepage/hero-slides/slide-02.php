@@ -28,17 +28,16 @@ $slide2 = get_field('slide-02');
         <div class="col-3 col-lg-2 h-100 overflow-hidden">
             <div class="animate-img animate-img-x h-100" style="background: url('<?php echo $slide2['img']['url'] ?? ''; ?>');"></div>
         </div>
-<!--        <img class="col-3 col-lg-2 h-100" src="--><?php //= $slide2['img']['url'] ?? ''; ?><!--"-->
-<!--             alt="--><?php //= $slide2['img']['title']; ?><!--">-->
-
         <div class="col-lg-4 text-end" data-aos="fade-up" data-aos-delay="700">
             <h3 class="display-2 fw-bold text-primary"><?= $slide2['title']; ?></h3>
             <p class="text-dark text-opacity-50 fs-5 ps-2">
                 <?= $slide2['content']; ?>
             </p>
             <a class="bg-dark bg-opacity-10 btn btn-custom col-11 col-lg-6"
-               href="<?= $slide2['btn-link']['url'] ?? ''; ?>"> MORE</a>
+               href="<?= esc_url($slide2['btn-link']['url'] ?? ''); ?>"
+               title="about us page">
+                MORE
+            </a>
         </div>
-
     </div>
 </div>

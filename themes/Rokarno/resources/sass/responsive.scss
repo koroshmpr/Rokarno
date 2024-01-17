@@ -32,6 +32,9 @@
   }
 }
 @include media-breakpoint-down(lg) {
+  #stalker , #cursor {
+    display:none;
+  }
   .translate-n200 {
     transform:translateY(-100px);
   }

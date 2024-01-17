@@ -22,22 +22,27 @@
     }
   }
 }
-#tile {
+.tileContainer #tile {
+  border: 1px solid $info;
   padding:5px;
+}
+.wall #tile {
+  padding:0
+}
+#tile {
   transition: background-color 0.3s ease-out;
   width: 400px;
   aspect-ratio: 1;
-  border: 1px solid $info;
   gap: 2px;
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: center;
   overflow: hidden;
   justify-content: center;
   img {
     transition: all 0.3s ease-out;
-    width: 20px;
-    height: 20px;
+    aspect-ratio: 1;
+    width:calc(100% / 12 - 2px );
     object-fit: cover;
   }
 }

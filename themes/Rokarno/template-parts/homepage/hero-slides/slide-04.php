@@ -39,8 +39,6 @@ $slide4 = get_field('slide-04');
             <div class="col-3 col-lg-2">
                 <div class="animate-img animate-img-x h-100" style="background: url('<?php echo $slide4['img']['url'] ?? ''; ?>');"></div>
             </div>
-<!--            <img data-aos="fade-up" class="col-3 col-lg-2 object-fit" src="--><?php //= $slide4['img']['url'] ?? ''; ?><!--"-->
-<!--                 alt="--><?php //= $slide4['img']['title']; ?><!--">-->
             <div class="col-lg-8 px-5 px-lg-0 d-flex flex-column gap-5 justify-content-center col justify-content-lg-evenly">
                 <h3 class="display-1 text-end fw-bold text-primary" data-aos="fade-right" data-aos-delay="700" data-aos-duration="800">Product</h3>
                 <div class="d-lg-flex d-grid gap-lg-3 gap-4" data-aos="fade-right" data-aos-delay="800" data-aos-duration="800">

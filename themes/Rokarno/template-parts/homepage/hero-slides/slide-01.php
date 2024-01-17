@@ -45,13 +45,15 @@ $slide1 = get_field('slide-01');
             <p class="text-primary col-12 col-lg-8 px-2 px-lg-3 fs-4">2012</p>
     </div>
     <figure class="col-lg-7 h-lg-35 h-35 ms-auto" data-aos="fade-up" data-aos-duration="1000">
-            <video id="homeVideo" class="object-fit h-100" poster="<?= $slide1['video_cover']['url'] ?? ''; ?>" width="100%" height="auto">
-                <source src="<?= $slide1['video']['url'] ?? ''; ?>" type="video/mp4">
-            </video>
-            <button id="playButton" type="button" aria-labelledby="homeVideo" class="position-absolute top-50 ratio-1x1 start-50 translate-middle btn bg-dark bg-opacity-50 rounded-circle p-3" >
-                <svg id="playButtonSvg" width="70" height="70" fill="white" class="bi bi-play-fill" viewBox="0 0 16 16">
-                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
-                </svg>
-            </button>
+        <video id="homeVideo" class="object-fit h-100" poster="<?= $slide1['video_cover']['url'] ?? ''; ?>" width="100%" height="auto">
+            <source src="<?= $slide1['video']['url'] ?? ''; ?>" type="video/mp4">
+            <track kind="captions" label="English" src="<?= $slide1['captions']['url'] ?? ''; ?>" srclang="en" default>
+        </video>
+        <button id="playButton" type="button" aria-labelledby="homeVideo" aria-label="Play Video" class="position-absolute top-50 ratio-1x1 start-50 translate-middle btn bg-dark bg-opacity-50 rounded-circle p-3">
+            <svg id="playButtonSvg" width="70" height="70" fill="white" class="bi bi-play-fill" viewBox="0 0 16 16">
+                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+            </svg>
+        </button>
     </figure>
+
 </div>
