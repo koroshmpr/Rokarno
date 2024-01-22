@@ -26,10 +26,7 @@
   border: 1px solid $info;
   padding:5px;
 }
-.wall #tile {
-  padding:0
-}
-#tile {
+#tile , .wall-tile {
   transition: background-color 0.3s ease-out;
   width: 400px;
   aspect-ratio: 1;

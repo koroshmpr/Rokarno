@@ -14,6 +14,25 @@ document.addEventListener('DOMContentLoaded', function () {
     AOS.init();
     const cursor = document.getElementById('cursor');
     const stalker = document.getElementById('stalker');
+    const allLinks = document.querySelectorAll('a');
+    const allButtons = document.querySelectorAll('button');
+
+// Function to add event listeners to elements
+    const addEventListeners = (elements) => {
+        elements.forEach(element => {
+            element.addEventListener('mouseover', () => {
+                cursor.classList.add('cursorHover');
+            });
+
+            element.addEventListener('mouseout', () => {
+                cursor.classList.remove('cursorHover');
+            });
+        });
+    };
+
+// Add event listeners to links and buttons
+    addEventListeners(allLinks);
+    addEventListeners(allButtons);
     document.addEventListener('mousemove', (event) => {
 
         const x = event.clientX;

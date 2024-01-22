@@ -48,7 +48,7 @@
   &:hover {
     padding: 15px 0 15px 50px;
     &::before {
-      animation: rotateBtn 5s ease 500ms infinite forwards;
+      animation: rotateBtn 5s ease 400ms infinite forwards;
       height: 10px;
       width: 10px;
       left:30%;
@@ -57,13 +57,16 @@
   }
 }
 @keyframes rotateBtn {
-  0%, 100% {
+  0% {
     transform: translate(-50%, -50%) rotate(0);
   }
 
   50% {
-    transform: translate(50%, -50%) rotate(-90deg);
+    transform: translate(-50%, -50%) rotate(-90deg);
     background-color: white;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-180deg);
   }
 }
 

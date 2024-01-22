@@ -28,11 +28,11 @@ if ( $related_products ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="my-5 p-3 text-primary bg-white bg-opacity-25"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 		
-		<?php woocommerce_product_loop_start(); ?>
-
+<!--		--><?php //woocommerce_product_loop_start(); ?>
+        <div class="pt-4 col-lg-9 row row-cols-lg-5 row-cols-2 justify-content-lg-start justify-content-center">
 			<?php foreach ( $related_products as $related_product ) : ?>
 
 					<?php
@@ -40,12 +40,15 @@ if ( $related_products ) : ?>
 
 					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 
-					wc_get_template_part( 'content', 'product' );
+//					wc_get_template_part( 'content', 'product' );
 					?>
+                <article class="px-2 pb-5" data-aos="zoom-in" data-aos-delay="<?= $i; ?>0">
+                    <?php get_template_part('template-parts/products/product-card'); ?>
+                </article>
 
 			<?php endforeach; ?>
-
-		<?php woocommerce_product_loop_end(); ?>
+        </div>
+<!--		--><?php //woocommerce_product_loop_end(); ?>
 
 	</section>
 	<?php

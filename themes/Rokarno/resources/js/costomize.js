@@ -1,35 +1,34 @@
-
 jQuery(document).ready(function ($) {
     let tileNumber = 144;
     let selectedDesignsWithChances = [];
-    $(".tile-size li").click(function () {
-        // Remove the 'active' class from all li elements
-        $(".tile-size li").removeClass("active");
+    // $(".tile-size li").click(function () {
+    //     // Remove the 'active' class from all li elements
+    //     $(".tile-size li").removeClass("active");
+    //
+    //     // Add the 'active' class to the clicked li element
+    //     $(this).addClass("active");
+    //
+    //     var size = $(this).data("size");
+    //     changeTileSize(size);
+    //     if (size == 30) {
+    //         $('#tile').css('gap', '3px')
+    //     }
+    //     if (size != 30) {
+    //         $('#tile').css('gap', '2px')
+    //     }
+    // });
 
-        // Add the 'active' class to the clicked li element
-        $(this).addClass("active");
-
-        var size = $(this).data("size");
-        changeTileSize(size);
-        if (size == 30) {
-            $('#tile').css('gap', '3px')
-        }
-        if (size != 30) {
-            $('#tile').css('gap', '2px')
-        }
-    });
-
-    function changeTileSize(size) {
-        // Reset the sizes first
-        $(".tile-img").css("width", "").css("height", "");
-
-        // Apply the new size
-        if (!isNaN(parseFloat(size)) && isFinite(size)) {
-            var newSize = size + "px"; // You can modify this as needed
-            $(".tile-img").css("width", newSize).css("height", newSize);
-        }
-
-    }
+    // function changeTileSize(size) {
+    //     // Reset the sizes first
+    //     $(".tile-img").css("width", "").css("height", "");
+    //
+    //     // Apply the new size
+    //     if (!isNaN(parseFloat(size)) && isFinite(size)) {
+    //         var newSize = size + "px"; // You can modify this as needed
+    //         $(".tile-img").css("width", newSize).css("height", newSize);
+    //     }
+    //
+    // }
 
     var selectedDesign = ''; // Variable to store the selected design
 
@@ -52,7 +51,14 @@ jQuery(document).ready(function ($) {
         designButton.css('background-image', 'url(' + imgSrc + ')');
 
         // Add a reset button next to the chosen design button
-        designButton.before('<span data-aos="fade-left" data-aos-delay="100" class="reset-btn text-white text-center bg-danger m-2 z-2 position-absolute top-0 start-0 rounded-circle">X</span>');
+        designButton.before(`
+              <span data-aos="fade-left" data-aos-delay="100" class="reset-btn text-center text-danger z-2 position-absolute top-0 start-0">
+                <svg width="18" height="18" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                </svg>
+              </span>
+             `);
+
         // Clear the current button's text
         designButton.text('');
 
@@ -79,7 +85,7 @@ jQuery(document).ready(function ($) {
 
         // Add the new class based on the selected color
         $('#tile').addClass(color);
-        $('#wall').addClass(`${color} p-3 border border-white border-opacity-25`);
+        $('#wall').addClass(`${color}`);
     });
 
 // Delegate click event listener to dynamically created reset buttons
@@ -132,6 +138,7 @@ jQuery(document).ready(function ($) {
         // Reset all chosen designs and inputs
         $('[data-design]').each(function () {
             resetDesign($(this), $(this).siblings('.percentage-input'));
+            $(this).parent().removeClass('bg-primary bg-danger');
         });
 
         // Remove all dynamically created reset buttons
@@ -139,8 +146,10 @@ jQuery(document).ready(function ($) {
 
         // Remove all child elements of $tile
         $('#tile').empty();
+        $('#wall').empty();
+        $('#wall').removeClass('border border-white border-opacity-10 shadow p-2');
     });
-
+    // create tile preview
     function populateTile() {
         // Get the #tile container
         var tileContainer = $('#tile');
@@ -148,17 +157,43 @@ jQuery(document).ready(function ($) {
         // Clear the existing content in #tile
         tileContainer.empty();
 
+        // Array to store information about selected colors with chances
+        var selectedDesignsLog = [];
+
         // Get the selected designs with chances
         var selectedDesignsWithChances = $('[data-design]').map(function () {
-            var design = $(this).data('design');
-            var imageUrl = $(this).css('background-image').replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-            var chance = parseFloat($(this).next('.percentage-input').val()) || 0;
+            var designElement = $(this); // Save the current element
+            var design = designElement.data('design');
+            var imageUrl = designElement
+                .css('background-image')
+                .replace(/^url\(["']?/, '')
+                .replace(/["']?\)$/, '');
+            var chance = parseFloat(designElement.next('.percentage-input').val()) || 0;
 
             // Check if the image URL is not 'none' and the chance is valid
-            if (imageUrl !== 'none' && !isNaN(chance)) {
-                return {design: design, imageUrl: imageUrl, chance: chance};
+            if (imageUrl !== 'none' && chance != 0) {
+                // Add a class to the parent of the current element
+                designElement.parent().removeClass('bg-danger');
+                designElement.parent().addClass('bg-primary');
+
+                // Push the information to the array
+                selectedDesignsLog.push({
+                    design: design,
+                    imageUrl: imageUrl,
+                    chance: chance,
+                });
+
+                return { design: design, imageUrl: imageUrl, chance: chance };
+            }
+            if (imageUrl == 'none' && chance == 0) {
+                designElement.parent().removeClass('bg-danger bg-primary');
+            }
+            if (imageUrl != 'none' || chance != 0) {
+                // Add a class to the parent of the current element
+                designElement.parent().addClass('bg-danger');
             }
         }).get();
+
 
         // Ensure the sum of chances is 100%
         var totalChances = selectedDesignsWithChances.reduce(function (sum, item) {
@@ -171,6 +206,7 @@ jQuery(document).ready(function ($) {
                 item.chance = (item.chance / totalChances) * 100;
             });
         }
+
         // Repeat the selected images with chances to fill the #tile container
         for (var i = 0; i < tileNumber; i++) {
             var randomChance = Math.random() * 100;
@@ -181,7 +217,9 @@ jQuery(document).ready(function ($) {
 
                 if (randomChance <= cumulativeChance) {
                     // Create a new image element
-                    var imgElement = $('<img class="tile-img">').attr('src', selectedDesignsWithChances[j].imageUrl).attr('alt', selectedDesignsWithChances[j].design);
+                    var imgElement = $('<img class="tile-img">')
+                        .attr('src', selectedDesignsWithChances[j].imageUrl)
+                        .attr('alt', selectedDesignsWithChances[j].design);
 
                     // Append the image to #tile
                     tileContainer.append(imgElement);
@@ -189,53 +227,54 @@ jQuery(document).ready(function ($) {
                 }
             }
         }
+        selectedDesign = selectedDesignsWithChances
     }
+
+    // creating wall
     $('#wallCreator').on('click', function () {
         createWall();
     });
-
     function createWall() {
-        // Get the #tile container
-        var tileContainer = $('#tile');
 
-        // Clear the existing content in #tile
-        // tileContainer.empty();
+        // Clear the existing content in #wall
+        var wallContainer = $('#wall');
+        wallContainer.empty();
 
-        // Repeat the selected images with chances to fill the #tile container for a 5x5 grid
-        for (var row = 0; row < 5; row++) {
-            for (var col = 0; col < 5; col++) {
-                var randomChance = Math.random() * 100;
-                var cumulativeChance = 0;
+        // Repeat the selected images with chances to fill the #wall container for a 5x5 grid
+        for (var col = 0; col < 5; col++) {
+            var colElement = $('<div class="row mx-0 px-0">');
 
-                for (var j = 0; j < selectedDesignsWithChances.length; j++) {
-                    cumulativeChance += selectedDesignsWithChances[j].chance;
+            for (var row = 0; row < 5; row++) {
+                var tileElement = $('<div class="wall-tile px-0">');
 
-                    if (randomChance <= cumulativeChance) {
-                        // Create a new image element
-                        var imgElement = $('<img class="tile-img">').attr('src', selectedDesignsWithChances[j].imageUrl).attr('alt', selectedDesignsWithChances[j].design);
+                for (var i = 0; i < tileNumber; i++) {
+                    var randomChance = Math.random() * 100;
+                    var cumulativeChance = 0;
 
-                        // Append the image to #tile
-                        tileContainer.append(imgElement);
-                        break;
+                    for (var j = 0; j < selectedDesign.length; j++) {
+                        cumulativeChance += selectedDesign[j].chance;
+
+                        if (randomChance <= cumulativeChance) {
+                            // Create a new image element
+                            var imgElement = $('<img class="wall-img">')
+                                .attr('src', selectedDesign[j].imageUrl)
+                                .attr('alt', selectedDesign[j].design);
+
+                            // Append the image to the current tile
+                            tileElement.append(imgElement);
+                            break;
+                        }
                     }
                 }
-            }
-        }
 
-        // Add the 5x5 grid of tiles to the wall
-        var wallContainer = $('.wall');
-        wallContainer.empty(); // Clear existing content
-
-        // Create a new row for each row of the wall
-        for (var i = 0; i < 5; i++) {
-            var rowElement = $('<div class="row mx-0 px-0">');
-
-            // Append 5 tiles to each row
-            for (var j = 0; j < 5; j++) {
-                rowElement.append(tileContainer.clone()); // Clone the #tile container
+                // Append the tile to the current column
+                colElement.append(tileElement);
             }
 
-            wallContainer.append(rowElement); // Append the row to the wall
+            // Append the column to the wall
+            wallContainer.append(colElement);
         }
+        wallContainer.addClass('border border-white border-opacity-10 shadow p-2')
     }
+
 });

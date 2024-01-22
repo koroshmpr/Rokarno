@@ -14,7 +14,7 @@
 <header id="mainHeader" class="position-absolute text-white z-2">
 <?php get_template_part('template-parts/Layout/header');
 
-//if (!is_shop() && !is_product_category()) {
+//if (!is_shop() && !is_product_category() && !is_singular('product')) {
 //    get_template_part('template-parts/preload/preload-fa');
 //}
 ?>

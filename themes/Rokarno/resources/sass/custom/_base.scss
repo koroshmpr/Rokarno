@@ -16,7 +16,7 @@ html {
    border-radius: 100%;
    pointer-events: none;
    z-index: 10000000000;
-   transition: transform ease-out 10ms;
+   transition: all 250ms linear, transform 10ms ease-out;
  }
 
  #stalker {
@@ -30,6 +30,14 @@ html {
    pointer-events: none;
    transition: transform ease-out 100ms;
    z-index: 999999999;
+ }
+ .cursorHover {
+   background-color: transparent!important;
+   border: 1px dashed $primary;
+   width:20px !important;
+   height:20px !important;
+   margin-top:-5px;
+   margin-right:-5px;
  }
 //.page-transition {
 //  opacity: 0;

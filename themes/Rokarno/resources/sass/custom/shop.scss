@@ -1,0 +1,25 @@
+.product_card {
+  .product_popup {
+    transition:all 0.2s linear;
+    visibility: hidden;
+    transform:translateY(50px);
+  }
+  &:hover {
+    .product_popup {
+      visibility: visible;
+      transform:translateY(0);
+    }
+  }
+}
+.tab-shop {
+  @extend .bg-opacity-50;
+  &.active {
+    @extend .bg-opacity-100
+  }
+}
+.product-image__modal {
+  max-height: 80vh;
+  height: 80vh!important;
+  object-fit: cover;
+  width:auto;
+}

@@ -32,6 +32,12 @@
   }
 }
 @include media-breakpoint-down(lg) {
+  .tab-product {
+    overflow-x:scroll;
+    .tab-shop {
+      width:max-content;
+    }
+  }
   #stalker , #cursor {
     display:none;
   }

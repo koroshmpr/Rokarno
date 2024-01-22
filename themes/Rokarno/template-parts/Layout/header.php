@@ -1,5 +1,4 @@
-<nav class="d-none d-lg-grid gap-4 justify-content-center" data-aos="fade-right" data-aos-duration="700"
-     data-aos-delay="200" id="mobileMenu">
+<nav class="d-none d-lg-grid gap-4 justify-content-center" <?php echo (!is_product_category() ? 'data-aos="fade-right" data-aos-duration="700" data-aos-delay="200"' : ''); ?> id="mobileMenu">
     <a class="navbar-brand m-0 text-center" href="https://macanagency.ir/rokarno">
         <?php
         $logoType = get_field('logo_type', 'option');
