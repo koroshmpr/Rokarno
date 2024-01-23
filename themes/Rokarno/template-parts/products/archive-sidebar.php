@@ -1,5 +1,5 @@
-<aside class="col-lg-3 col-11 px-lg-4 px-2 order-first order-lg-last mb-5 mb-lg-0">
-    <div class="row p-2 pb-1 border border-white border-opacity-25 mt-3 mt-lg-0 justify-content-end" id="category-dropdown">
+<aside class="col-lg-3 col-11 px-lg-4 px-2 order-last mb-5 mb-lg-0">
+    <div class="row p-2 pb-1 border border-white border-opacity-25 mt-3 mt-lg-0" id="category-dropdown">
         <?php
         $categories = get_terms(array(
             'taxonomy' => 'product_cat',
@@ -54,4 +54,7 @@
         }
         ?>
     </div>
+    <article class="text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
+        <?= get_field('shop_description' , 'option'); ?>
+    </article>
 </aside>

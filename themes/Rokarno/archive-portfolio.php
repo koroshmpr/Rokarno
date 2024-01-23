@@ -23,7 +23,7 @@ get_header(); ?>
                 <div data-aos="fade-<?= $i % 2 == 0 ? 'right' : 'left'; ?>">
                     <img class="object-fit img-fluid ratio-1x1" height="250" src="<?php echo esc_url(the_post_thumbnail_url()); ?>"
                          alt="<?php echo get_the_title(); ?>">
-                    <h5 class="p-3 bg-white fw-bold bg-opacity-25 text-primary">
+                    <h5 class="p-3 bg-white fw-bold bg-opacity-25 text-primary d-flex align-items-center gap-2">
                         <svg  width="17" height="17" fill="currentColor" class="bi bi-square-fill" viewBox="0 0 16 16">
                             <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2z"/>
                         </svg>

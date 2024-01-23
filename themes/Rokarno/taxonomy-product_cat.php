@@ -23,6 +23,7 @@ $current_category_id = get_queried_object_id(); // Get the current category ID
 
 ?>
         <?php get_template_part('template-parts/products/archive-hero'); ?>
+
     <section class="container py-5">
         <section class="row py-5 align-items-start justify-content-center justify-content-lg-start">
             <div class="col-lg-9 row row-cols-lg-5 row-cols-2 justify-content-lg-start justify-content-center">

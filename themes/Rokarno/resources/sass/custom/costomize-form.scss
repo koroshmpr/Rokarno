@@ -30,7 +30,7 @@
   transition: background-color 0.3s ease-out;
   width: 400px;
   aspect-ratio: 1;
-  gap: 2px;
+  gap: 1px;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -39,7 +39,7 @@
   img {
     transition: all 0.3s ease-out;
     aspect-ratio: 1;
-    width:calc(100% / 12 - 2px );
+    width:calc(100% / 12 - 1px );
     object-fit: cover;
   }
 }
