@@ -1,11 +1,14 @@
+<?php
+global $cur_lan;
+?>
 <form class="search-form d-flex gap-1 align-items-center <?= $args['formClass']?? '';?>" method="get"
       action="<?php echo esc_url(home_url('/')); ?>">
     <div class="input-group position-relative">
         <input id="search-form" type="search" name="s"
-               class="form-control text-primary bg-white bg-opacity-10 ps-5 py-3"
-               placeholder="جستجو..." aria-label="Search">
+               class="form-control text-primary bg-white bg-opacity-10 <?= $cur_lan == 'en' ? 'ps-5' : 'pe-5';?> py-3"
+               placeholder="<?=  esc_html__('Search...', 'rokarno');  ?>" aria-label="Search">
         <button type="submit"
-                class="position-absolute start-0 top-50 translate-middle-y ps-3 btn text-info d-flex align-items-center z-top"
+                class="position-absolute <?= $cur_lan == 'en' ? 'start-0 ps-3 ' : 'end-0 pe-3';?> top-50 translate-middle-y btn text-white d-flex align-items-center z-1"
                 aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search"
                  viewBox="0 0 16 16">

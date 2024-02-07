@@ -26,16 +26,11 @@
 @import "custom/costomize-form";
 @import "custom/blog";
 @import "custom/forms";
+@import "custom/swiper";
+@import "custom/rtl";
 @import "responsive";
 
-.hero_slider {
-  height: 100vh;
-  width: 100%;
-  .swiper-wrapper , .swiper-slide {
-    height: 100%;
-  }
-}
-//paggination
+//pagination
 .page-numbers {
   list-style: none;
   display: flex;
@@ -62,31 +57,32 @@
     color:$primary;
   }
 }
-.swiper-slide {
-  .animate-img {
-    transition: all 0.8s ease-out;
-    opacity: 0 !important;
-    background-attachment: fixed !important;
-    transform-origin: center; /* Set the initial transform origin to center */
-  }
 
-  .animate-img-x {
-    width: 0 !important;
-  }
-
-  .animate-img-y {
-    height: 0 !important;
-  }
-
-  &.swiper-slide-active {
-    .animate-img-x {
-      width: 100% !important;
-      opacity: 1 !important;
+//language switcher
+.wpml-ls-statics-shortcode_actions ul {
+  display: flex;
+  justify-content: space-between;
+  width: clamp(50px, 200px, 80px);
+  li {
+    aspect-ratio: 1;
+    display: flex!important;
+    align-items: center;
+    color: white;
+    border: 1px solid $primary;
+    .wpml-ls-link {
+      padding: 4px;
+      color:$primary;
+      span {
+        line-height: 1!important;
+        font-size:16px !important
+      }
     }
-
-    .animate-img-y {
-      height: 100% !important;
-      opacity: 1 !important;
+    &:hover ,
+    &.wpml-ls-current-language {
+      background-color: $primary;
+      .wpml-ls-link {
+        color: white;
+      }
     }
   }
 }

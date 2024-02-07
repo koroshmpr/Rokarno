@@ -1,5 +1,6 @@
-<nav class="d-none d-lg-grid gap-4 justify-content-center" <?php echo (!is_product_category() ? 'data-aos="fade-right" data-aos-duration="700" data-aos-delay="200"' : ''); ?> id="mobileMenu">
-    <a class="navbar-brand m-0 text-center" href="https://macanagency.ir/rokarno">
+<?php global $cur_lan; ?>
+<nav id="desktop-header" class="d-none d-lg-grid justify-content-center" <?php echo (!is_product_category() ? 'data-aos="fade-right" data-aos-duration="700" data-aos-delay="200"' : ''); ?>>
+    <a class="navbar-brand m-0" href="<?= home_url() ?>">
         <?php
         $logoType = get_field('logo_type', 'option');
         $logoSvg = get_field('site_logo_svg', 'option');
@@ -11,23 +12,25 @@
             <img class="img-fluid" width="113" height="156" src="<?= $logoImg['url'] ?>" alt="<?= $logoImg['title'] ?>">
         <?php } ?>
     </a>
+
     <?php
     $locations = get_nav_menu_locations();
     $menu = wp_get_nav_menu_object($locations['headerMenuLocation']);
     if ($menu) :
         wp_nav_menu(array(
             'theme_location' => 'headerMenuLocation',
-            'menu_class' => 'desktop-menu px-3 row navbar-nav gap-1 align-items-center justify-items-center',
+            'menu_class' => 'desktop-menu px-3 mt-3 row navbar-nav gap-1 align-items-center justify-items-center',
             'container' => false,
             'menu_id' => 'navbarTogglerMenu',
             'item_class' => 'nav-item', // Add 'dropdown' class to top-level menu items
             'link_class' => 'nav-link p-0 pb-1 fs-6', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
-            'depth' => 1,
+            'depth' => 2,
         ));
     endif;
     ?>
+<?php do_action('wpml_add_language_selector'); ?>
 </nav>
-<nav class="d-lg-none navbar py-0">
+<nav id="mobileMenu" class="d-lg-none navbar py-0">
     <button class="btn p-0 border-0 text-white" type="button" aria-labelledby="offcanvasRight" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-nested"
@@ -43,23 +46,23 @@
                 id="offcanvasRightLabel"><?php get_template_part('template-parts/logo_brand'); ?></h5>
             <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body d-flex flex-column justify-content-between align-items-center pt-5">
+        <div class="offcanvas-body d-flex flex-column justify-content-between align-items-center">
             <?php
             $locations = get_nav_menu_locations();
             $menu = wp_get_nav_menu_object($locations['headerMenuLocation']);
             if ($menu) :
                 wp_nav_menu(array(
                     'theme_location' => 'headerMenuLocation',
-                    'menu_class' => 'px-0 navbar-nav gap-2 align-items-center flex-wrap',
+                    'menu_class' => 'desktop-menu px-3 col-11 row navbar-nav gap-1 align-items-center justify-items-center',
                     'container' => false,
                     'menu_id' => 'navbarHomeMenu',
-                    'item_class' => 'nav-item ', // Add 'dropdown' class to top-level menu items
-                    'link_class' => 'nav-link text-white fs-3', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
-                    'depth' => 2,
+                    'item_class' => 'nav-item', // Add 'dropdown' class to top-level menu items
+                    'link_class' => 'nav-link p-0 pb-1 fs-3 text-center', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
                 ));
             endif;
             ?>
-            <a class="navbar-brand m-0 col-2 text-center" href="/">
+            <?php do_action('wpml_add_language_selector'); ?>
+            <a class="navbar-brand m-0 col-2 text-center" href="<?= home_url() ?>">
                 <?php
                 $logoType = get_field('logo_type', 'option');
                 $logoSvg = get_field('site_logo_svg', 'option');
@@ -73,4 +76,5 @@
             </a>
         </div>
     </div>
+
 </nav>

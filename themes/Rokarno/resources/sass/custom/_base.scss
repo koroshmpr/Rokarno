@@ -4,9 +4,9 @@
 html {
   margin-top:0 !important;
 }
- *:not(#wpadminbar):not(.ab-item) {
-   cursor: none;
- }
+  *:not(#wpadminbar):not(.ab-item) {
+    cursor: none;
+  }
  //custom cursor
  #cursor {
    position: fixed;

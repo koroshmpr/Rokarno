@@ -2,7 +2,7 @@
 /** Template Name: portfolio archive */
 
 get_header(); ?>
-    <div class="container py-5">
+    <div class="py-5 px-lg-5">
 
         <?php
         $args = array(

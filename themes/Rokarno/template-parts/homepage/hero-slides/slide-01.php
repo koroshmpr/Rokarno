@@ -1,8 +1,9 @@
 <?php
 $slide1 = get_field('slide-01');
+global $cur_lan;
 ?>
 <div class="swiper-slide d-flex flex-column align-items-xxl-start align-items-center">
-    <div class="position-absolute start-0 top-0 col-2 h-auto d-none d-lg-inline">
+    <div class="position-absolute <?= $cur_lan == 'en' ? 'start-0' : 'end-0';?> top-0 col-2 h-auto d-none d-lg-inline">
         <div class="w-100 animate-img animate-img-x vh-65 object-fit z-2" style="background: url('<?php echo $slide1['img']['url'] ?? ''; ?>');"></div>
             <div class="position-absolute top-75 d-flex flex-column opacity-lg-25">
                 <span data-aos="zoom-in" data-aos-delay="800" data-aos-duration="600">
@@ -37,14 +38,16 @@ $slide1 = get_field('slide-01');
                 </span>
             </div>
     </div>
-    <div class="col-md-10 d-flex h-65 flex-column align-items-center justify-content-end" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="500">
-        <h2 class="display-lg col-lg-8 fw-bolder text-primary lh-0 mb-0 d-flex flex-wrap">
-            Living in <p class="text-white" data-aos="fade-right" data-aos-delay="1200" data-aos-duration="700">Dream</p>
-
+    <div class="d-flex h-lg-65 h-50 flex-column justify-content-end" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="500">
+        <h2 class="display-lg col-lg-8 px-2 fw-bolder text-white lh-0 mb-0 d-flex flex-wrap">
+        <?= $slide1['big_title']; ?>
+            <p class="text-primary" data-aos="fade-right" data-aos-delay="1200" data-aos-duration="700">
+                <?= $slide1['big_title_colored']; ?>
+            </p>
         </h2>
-            <p class="text-primary col-12 col-lg-8 px-2 px-lg-3 fs-4">2012</p>
+            <p class="text-primary col-12 <?= $cur_lan == 'en' ? 'col-lg-8' : 'col-lg-4 ms-auto';?> px-2 px-lg-3 fs-4">2012</p>
     </div>
-    <figure class="col-lg-7 h-lg-35 h-35 ms-auto" data-aos="fade-up" data-aos-duration="1000">
+    <figure class="col-lg-7 mb-0 h-lg-35 h-50 <?= $cur_lan == 'en' ? 'ms-auto' : 'me-auto';?>" data-aos="fade-up" data-aos-duration="1000">
         <video id="homeVideo" class="object-fit h-100" poster="<?= $slide1['video_cover']['url'] ?? ''; ?>" width="100%" height="auto">
             <source src="<?= $slide1['video']['url'] ?? ''; ?>" type="video/mp4">
             <track kind="captions" label="English" src="<?= $slide1['captions']['url'] ?? ''; ?>" srclang="en" default>

@@ -3,7 +3,9 @@
     <?php get_template_part('template-parts/blog/blog-search-form'); ?>
     <!--    archive posts by date-->
     <div class="py-4">
-        <h4 class="py-3 text-primary"><a href="<?= esc_url(get_post_type_archive_link('post')); ?>">آرشیو</a></h4>
+        <h4 class="py-3 text-primary"><a href="<?= esc_url(get_post_type_archive_link('post')); ?>">
+                <?=  esc_html__('Archive', 'rokarno'); ?>
+            </a></h4>
         <?php
         global $post;
 
@@ -49,11 +51,11 @@
         wp_reset_postdata();
         ?>
     </div>
-
-
     <!--    most visited post -->
     <div class="row gap-2 mt-3 justify-content-center">
-        <h4 class="fw-bold">اخبار</h4>
+        <h4 class="fw-bold">
+            <?=  esc_html__('News', 'rokarno'); ?>
+        </h4>
         <div class="row justify-content-center gap-3">
             <?php
             $args2 = array(
@@ -70,43 +72,18 @@
                 ?>
                 <?php while ($loop2->have_posts()) :
                 $loop2->the_post(); ?>
-                <article
-                        class="border border-info border-opacity-50 row px-0 justify-content-between align-items-stretch">
-                    <div class="col-3 position-relative px-0">
-                        <img class="object-fit img-fluid ratio-1x1" height="250"
-                             src="<?php echo the_post_thumbnail_url(); ?>"
-                             alt="<?php echo get_the_title(); ?>">
-                    </div>
-                    <div class="col-9 d-flex flex-column justify-content-center p-3">
-                        <div class="d-flex justify-content-between pt-3 pt-lg-0">
-                            <div class="text-primary fw-bold fs-6 text-center">
+                <article class="border border-white border-opacity-25 row px-0 justify-content-between align-items-stretch">
+                    <img class="col-3 px-0 object-fit img-fluid ratio-1" height="250"
+                         src="<?php echo the_post_thumbnail_url(); ?>"
+                         alt="<?php echo get_the_title(); ?>">
+                    <div class="col-9 d-flex flex-column justify-content-center p-2">
+                        <div class="d-flex justify-content-between align-items-center pt-3 pt-lg-0">
+                            <div class="text-primary fw-bold small text-center">
                                 <?= get_the_title(); ?>
                             </div>
                             <div>
-                                <a class="btn btn-primary p-0 border-0 rounded-circle" href="<?php the_permalink(); ?>">
-                                    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" width="30"
-                                         height="30" viewBox="0 0 25.39 25.45">
-                                        <defs>
-                                            <style>
-                                                .chervon-1 {
-                                                    fill-rule: evenodd;
-                                                }
-
-                                                .chervon-1, .chervon-2 {
-                                                    fill: none;
-                                                    stroke: #0071bc;
-                                                    stroke-miterlimit: 10;
-                                                    stroke-width: 1.5px;
-                                                }
-                                            </style>
-                                        </defs>
-                                        <g id="Layer_1-2" data-name="Layer 1">
-                                            <g>
-                                                <polyline class="chervon-1" points="17.67 19.49 5.98 12.72 17.67 5.96"/>
-                                                <ellipse class="chervon-2" cx="12.7" cy="12.72" rx="11.95" ry="11.97"/>
-                                            </g>
-                                        </g>
-                                    </svg>
+                                <a class="btn btn-custom rounded-circle" href="<?php the_permalink(); ?>">
+                                    <?=  esc_html__('See More', 'rokarno');  ?>
                                 </a>
                             </div>
                         </div>
@@ -120,8 +97,8 @@
     </div>
     <!--    social media-->
     <div>
-        <h6 class="py-4">
-            ما را در شبکه های اجتماعی دنبال کنید
+        <h6 class="py-4 text-center text-primary">
+            <?=  esc_html__('Follow us on social Networks', 'rokarno'); ?>
         </h6>
         <div class="w-100 d-flex align-items-center justify-content-center gap-3 pb-5 pb-lg-0">
             <?php

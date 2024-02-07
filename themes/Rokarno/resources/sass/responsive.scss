@@ -1,6 +1,30 @@
 @include media-breakpoint-up(lg) {
+  body {
+    --header-width : 250px;
+    display: flex;
+    background-color: $secondary;
+    &.scrolled {
+    }
+    #desktop-header {
+      position: fixed;
+      top:50px;
+    }
+  }
+  main {
+    width : calc(100vw - var(--header-width));
+  }
+  #mainHeader , #desktop-header {
+    width : var(--header-width);
+  }
+  .desktop-menu {
+    width: 180px;
+    max-width: 180px;
+  }
+  .contact-hero {
+    height:500px;
+  }
   .top-lg-25 {
-    top:25%
+    top:25% !important;
   }
   .translate-n200 {
     transform:translateY(-200px);
@@ -12,7 +36,7 @@
     min-width:180px;
   }
   .h-lg-35 {
-    height:35%
+    height:35% !important;
   }
   .display-lg , .display-lg * {
     font-size:8rem!important;
@@ -24,14 +48,25 @@
   .h-lg-75 {
     height:75% !important;
   }
-  #mainHeader {
-    width: 150px;
-    max-width: 200px;
-    top: 70px;
-    right: 50px;
+  .h-lg-65 {
+    height:65% !important;
   }
 }
 @include media-breakpoint-down(lg) {
+  .wpml-ls-statics-shortcode_actions {
+    margin-top:auto;
+    margin-bottom:20px
+  }
+  #mainHeader {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+  }
+  body.rtl {
+    #mainHeader {
+    left:20px
+    }
+  }
   .tab-product {
     overflow-x:scroll;
     .tab-shop {
@@ -53,21 +88,29 @@
   .opacity-lg-25 {
     opacity:0.25
   }
-  #mainHeader {
-    top: 30px;
-    left: 20px;
-  }
 }
 @include media-breakpoint-down(xxl) {
   .display-lg {
     font-size: 8rem;
     line-height: 0.8;
   }
+  body.rtl {
+    .display-lg {
+      font-size: 7rem;
+      line-height: 1;
+    }
+  }
 }
 @include media-breakpoint-up(xxl) {
   .display-lg , .display-lg * {
     font-size:13rem!important;
     line-height:0.8;
+  }
+  body.rtl {
+    .display-lg , .display-lg * {
+      font-size:11rem!important;
+      line-height:1.2;
+    }
   }
 }
 @include media-breakpoint-down(sm) {
@@ -77,7 +120,7 @@
   .fs-4 { font-size: calc(1.225rem + 0.2vw) !important; }
   .fs-5 { font-size: 0.9rem !important;  }
   .fs-6, p, span {
-    font-size: 0.75rem !important;
+    font-size: 1rem !important;
     line-height: 1.7;
   }
   small, .small { font-size: 0.875rem !important; }
@@ -89,6 +132,12 @@
   .display-lg , .display-lg * {
     font-size:5.5rem!important;
     line-height:0.8;
+  }
+  body.rtl {
+    .display-lg , .display-lg * {
+      font-size:5rem!important;
+      line-height:1.2;
+    }
   }
   .product-card {
     .modal {

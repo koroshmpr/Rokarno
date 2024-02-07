@@ -28,7 +28,7 @@ if ( $related_products ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2 class="my-5 p-3 text-primary bg-white bg-opacity-25"><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="my-5 p-3 text-primary fw-bold"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 		
 <!--		--><?php //woocommerce_product_loop_start(); ?>

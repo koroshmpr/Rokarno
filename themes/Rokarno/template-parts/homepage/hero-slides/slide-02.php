@@ -1,8 +1,9 @@
 <?php
 $slide2 = get_field('slide-02');
+global $cur_lan;
 ?>
 <div class="swiper-slide bg-secondary">
-    <div class="position-absolute start-0 d-flex flex-column opacity-lg-25">
+    <div class="position-absolute <?= $cur_lan == 'en' ? 'start-0' : 'end-0';?> d-flex flex-column opacity-lg-25">
         <span data-aos="fade-down" data-aos-delay="1000" data-aos-duration="200">
                 <?php
                 $args = array(
@@ -24,19 +25,19 @@ $slide2 = get_field('slide-02');
             ?>
         </span>
     </div>
-    <div class="col-lg-10 h-100 gap-4 d-flex justify-content-center align-items-center" >
+    <div class="h-100 gap-4 d-flex align-items-center" >
         <div class="col-3 col-lg-2 h-100 overflow-hidden">
-            <div class="animate-img animate-img-x h-100" style="background: url('<?php echo $slide2['img']['url'] ?? ''; ?>');"></div>
+            <div class="animate-img animate-img-x h-100" style="background: url('<?php echo $slide2['img']['url'] ?? ''; ?>') center center / cover;"></div>
         </div>
-        <div class="col-lg-4 text-end" data-aos="fade-up" data-aos-delay="700">
+        <div class="col-lg-4 <?= $cur_lan == 'en' ? 'text-end' : '';?>" data-aos="fade-up" data-aos-delay="700">
             <h3 class="display-2 fw-bold text-primary"><?= $slide2['title']; ?></h3>
-            <p class="text-dark text-opacity-50 fs-5 ps-2">
+            <p class="text-dark text-opacity-75 fs-5 ps-2">
                 <?= $slide2['content']; ?>
             </p>
             <a class="bg-dark bg-opacity-10 btn btn-custom col-11 col-lg-6"
                href="<?= esc_url($slide2['btn-link']['url'] ?? ''); ?>"
                title="about us page">
-                MORE
+                <?=  esc_html__('MORE', 'rokarno');  ?>
             </a>
         </div>
     </div>

@@ -1,8 +1,12 @@
-<h1 class="display-1 text-primary pt-lg-5 py-3 text-end sofia fw-bold" data-aos="fade-right">
+<?php
+global $cur_lan;
+?>
+<h1 class="display-1 mb-0 text-primary py-5 py-lg-0 <?= $cur_lan == 'en' ? 'text-lg-end' : 'text-lg-start';?> text-center fw-bold" data-aos="fade-right">
     <?= $args['title'];?>
 </h1>
 <?php
-//$title = '';
+//$title = '';git
+
 //$args = array(
 //    'title' => $title
 //);

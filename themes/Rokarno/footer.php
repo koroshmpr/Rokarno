@@ -17,7 +17,6 @@ if (is_singular('product')) { ?>
         </div>
     </div>
 <?php } ?>
-
 <?php wp_footer(); ?>
 </body>
 </html>

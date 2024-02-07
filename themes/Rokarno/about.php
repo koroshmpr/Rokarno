@@ -1,19 +1,18 @@
 <?php
 /** Template Name: about us */
-
+global $cur_lan;
 get_header(); ?>
-<section class="position-relative">
-    <div class="position-absolute top-lg-25 top-50 translate-middle-y start-0 end-0 row justify-content-center">
-        <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="3000"
-            class="col-lg-8 col-11 display-1 text-white fw-bold"> <?= get_field('title'); ?></h1>
-    </div>
-    <img class="img-fluid vw-100 about-hero" src="<?= get_field('image')['url'] ?? '' ?>" alt="rokarno about">
+<section class="d-flex">
+    <img class="img-fluid contact-hero object-fit-cover col-lg-12" src="<?= get_field('image')['url'] ?? '' ?>" alt="rokarno about">
 </section>
-<section class="container h-100 px-0 col-10">
-    <div class="row justify-content-center bg-secondary translate-n200 shadow">
-        <img class="col-lg-7 px-0" src="<?= get_field('about_desctiption_img')['url'] ?? '' ?>" alt="rokarno about">
-        <div class="col-lg-5 px-0">
-            <article class="p-4 p-lg-5 text-white text-justify fs-6">
+<section class="h-100">
+    <div class="row justify-content-center bg-secondary my-5">
+        <h1 data-aos="fade-down" data-aos-duration="1000"  class="text-center <?= $cur_lan == 'en' ? 'text-lg-end' : 'text-lg-start' ?> display-1 py-3 text-primary fw-bold">
+            <!--            --><?php //= get_field('title'); ?>
+            <?= get_the_title(); ?>
+        </h1>
+        <div class="col">
+            <article class="p-4 p-lg-5 text-dark text-justify fs-6">
                 <?= get_field('about_desctiption'); ?>
             </article>
         </div>
@@ -23,7 +22,7 @@ get_header(); ?>
 $personnelSwitch = get_field('personnels-switch');
 if ($personnelSwitch) {
     ?>
-    <section class="container-fluid py-5 px-0" data-aos="fade-up">
+    <section class="py-5 px-0" data-aos="fade-up">
         <div class="swiper card-slide">
             <div class="swiper-wrapper">
                 <?php

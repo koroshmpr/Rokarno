@@ -8,8 +8,9 @@ $body-text: $body-color;
 
 $primary: #0E5A57;
 $secondary: #B79881;
-$info : #b3b3b38f ;
-$warning: #E9E9E9;
+$warning : yellow;
+$info : #b3b3b38f;
+$success : blue;
 
 
 //fonts
@@ -33,7 +34,7 @@ $spacers: (
         4: $spacer * 2,
         5: $spacer * 3,
 );
-$font-family-base: Play , Ravi , 'sans-serif', 'Nunito';
+$font-family-base: Play , Yekan , 'sans-serif', 'Nunito';
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 $font-weight-bolder: 900;

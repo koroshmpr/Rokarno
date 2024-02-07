@@ -1,0 +1,19 @@
+body.rtl {
+  #stalker {
+    margin-left: -25px;
+    margin-right:0
+  }
+  #cursor {
+    margin-left: -10px;
+  }
+  .menu-item-has-children {
+    button {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  .translate-x-100 {
+    transform: translateX(-100%);
+  }
+}

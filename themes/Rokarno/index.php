@@ -1,22 +1,44 @@
 <?php
 /** Template Name: blog archive */
 
-get_header(); ?>
-
-<!--title-->
-<section class="container py-3">
-    <?php
-    $title = 'NEWS';
-    $args = array(
-        'title' => $title
-    );
-    get_template_part('template-parts/title', null, $args);
-    ?>
-</section>
-
-<section class="container pt-2 pb-5">
+get_header();
+global $cur_lan;
+?>
+<section class="py-5 px-3 mt-5 px-lg-5">
+    <div class="position-absolute <?= $cur_lan == 'en' ? 'start-0' : 'end-0';?> d-flex flex-column opacity-lg-25">
+        <span data-aos="fade-down" data-aos-delay="1000" data-aos-duration="800">
+            <?php
+            $args = array(
+                'class' => '',
+                'fill-color' => '#9CCAAA',
+                'fill-opacity' => '0.8'
+            );
+            get_template_part('template-parts/svg/tales/tale', null, $args);
+            ?>
+        </span>
+        <span data-aos="zoom-in" data-aos-delay="1300" data-aos-duration="800">
+            <?php
+            $args = array(
+                'class' => 'translate-x-100',
+                'fill-color' => '#9CCAAA',
+                'fill-opacity' => '0.3'
+            );
+            get_template_part('template-parts/svg/tales/tale', null, $args);
+            ?>
+        </span>
+        <span data-aos="fade-left" data-aos-delay="1400" data-aos-duration="800">
+            <?php
+            $args = array(
+                'class' => '',
+                'fill-color' => '#CEC8C0',
+                'fill-opacity' => '0.3'
+            );
+            get_template_part('template-parts/svg/tales/tale', null, $args);
+            ?>
+        </span>
+    </div>
     <div class="row justify-content-center justify-content-lg-between ">
-        <div class="col-lg-9 row row-cols-1 gap-5 justify-content-center align-items-start">
+        <div class="col-lg-10 row row-cols-1 gap-5 justify-content-center align-items-start">
             <?php
             $paged = get_query_var('paged') ?? 10;
 
@@ -54,7 +76,7 @@ get_header(); ?>
                     get_template_part('template-parts/blog/archive-card');
                 endwhile;
             else :
-                echo '<p>' . esc_html('No posts found') . '</p>';
+                echo '<p class="text-center fs-4 text-white">' . esc_html__('No posts found', 'rokarno') . '</p>';
             endif;
 
             wp_reset_postdata();
@@ -86,7 +108,7 @@ get_header(); ?>
             <!-- End Pagination -->
         </div>
 
-        <?php get_template_part('template-parts/blog/blog-sidebar'); ?>
+<!--        --><?php //get_template_part('template-parts/blog/blog-sidebar'); ?>
     </div>
 </section>
 

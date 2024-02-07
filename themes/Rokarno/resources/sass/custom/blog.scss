@@ -1,0 +1,10 @@
+.post-card {
+  img {
+    transition: filter 0.3s ease;
+  }
+  &:hover {
+    img {
+      filter : blur(2px) brightness(0.7);
+    }
+  }
+}

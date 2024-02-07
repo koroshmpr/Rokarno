@@ -55,8 +55,8 @@ if (woocommerce_product_loop()) {
     if ($products) {
         $i = 0;
         ?>
-        <section class="container">
-            <div class="row py-5 align-items-start justify-content-center justify-content-lg-start">
+        <section>
+            <div class="row col-lg-11 py-5 align-items-start justify-content-center justify-content-lg-start">
                 <div class="col-lg-9 row row-cols-lg-5 row-cols-2 justify-content-lg-start justify-content-center">
                     <?php foreach ($products as $product) :
                         setup_postdata($product->get_id()); ?>
@@ -89,7 +89,9 @@ if (woocommerce_product_loop()) {
      */
 //    do_action('woocommerce_no_products_found');
     ?>
-    <h2 class="text-center fw-bold fs-4 border rounded-3 border-info p-5 bg-white bg-opacity-10">محصولی یافت نشد</h2>
+    <h2 class="fs-4 text-center w-100 border border-info p-4 my-0 bg-white text-white bg-opacity-10">
+        <?= esc_html__('No Products Found', 'rokarno'); ?>
+        </h2>
 <?php }
 
 /**

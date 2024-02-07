@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div class="container py-5" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<div class="col-lg-10 py-5" id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 <div class="row">
 	<?php
 	/**

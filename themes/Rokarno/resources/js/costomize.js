@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
     let tileNumber = 144;
+    let selectSize = '';
     let selectedDesignsWithChances = [];
     // $(".tile-size li").click(function () {
     //     // Remove the 'active' class from all li elements
@@ -108,21 +109,31 @@ jQuery(document).ready(function ($) {
     }
 
     $(".tile-shape li").click(function () {
+
         // Remove the 'active' class from all li elements
         $(".tile-shape li").removeClass("active");
 
         // Add the 'active' class to the clicked li element
         $(this).addClass("active");
-
         var size = $(this).data("size");
-
+        var length = $(this).data('length');
+        if(length) {
+            tileNumber = length
+        }if (!length) {
+            tileNumber = 144
+        }
+        selectSize = size;
         // Show the selected shape images and hide others
-        $('#tileGallery div').addClass('d-none'); // Hide all image sets
+        $('#tileGallery article').addClass('d-none'); // Hide all image sets
         $(`#${size}`).removeClass('d-none'); // Show the selected shape images
+
+        // Add the 'size' class to the generated images
+        $('#tile .tile-img').addClass(size);
 
         // Reset other fields when the shape changes
         resetSelections();
     });
+
 
     function resetDesign(button, input) {
         // Clear the background image and text of the chosen design button
@@ -147,7 +158,7 @@ jQuery(document).ready(function ($) {
         // Remove all child elements of $tile
         $('#tile').empty();
         $('#wall').empty();
-        $('#wall').removeClass('border border-white border-opacity-10 shadow p-2');
+        $('#wall').removeClass('shadow');
     });
     // create tile preview
     function populateTile() {
@@ -169,6 +180,7 @@ jQuery(document).ready(function ($) {
                 .replace(/^url\(["']?/, '')
                 .replace(/["']?\)$/, '');
             var chance = parseFloat(designElement.next('.percentage-input').val()) || 0;
+            var size = designElement.data('size'); // Add this line to get the 'data-size'
 
             // Check if the image URL is not 'none' and the chance is valid
             if (imageUrl !== 'none' && chance != 0) {
@@ -181,9 +193,10 @@ jQuery(document).ready(function ($) {
                     design: design,
                     imageUrl: imageUrl,
                     chance: chance,
+                    size: size // Add 'size' to the stored information
                 });
 
-                return { design: design, imageUrl: imageUrl, chance: chance };
+                return { design: design, imageUrl: imageUrl, chance: chance, size: size };
             }
             if (imageUrl == 'none' && chance == 0) {
                 designElement.parent().removeClass('bg-danger bg-primary');
@@ -193,7 +206,6 @@ jQuery(document).ready(function ($) {
                 designElement.parent().addClass('bg-danger');
             }
         }).get();
-
 
         // Ensure the sum of chances is 100%
         var totalChances = selectedDesignsWithChances.reduce(function (sum, item) {
@@ -216,10 +228,11 @@ jQuery(document).ready(function ($) {
                 cumulativeChance += selectedDesignsWithChances[j].chance;
 
                 if (randomChance <= cumulativeChance) {
-                    // Create a new image element
+                    // Create a new image element with the 'tile-img' class and 'size' class
                     var imgElement = $('<img class="tile-img">')
                         .attr('src', selectedDesignsWithChances[j].imageUrl)
-                        .attr('alt', selectedDesignsWithChances[j].design);
+                        .attr('alt', selectedDesignsWithChances[j].design)
+                        .addClass(selectSize); // Add the 'size' class
 
                     // Append the image to #tile
                     tileContainer.append(imgElement);
@@ -227,12 +240,16 @@ jQuery(document).ready(function ($) {
                 }
             }
         }
-        selectedDesign = selectedDesignsWithChances
+        selectedDesign = selectedDesignsWithChances;
     }
 
     // creating wall
     $('#wallCreator').on('click', function () {
         createWall();
+        // Smoothly scroll to the wallContainer
+        $('html, body').animate({
+            scrollTop: $('#wall').offset().top
+        }, 500); // Adjust the duration as needed (in milliseconds)
     });
     function createWall() {
 
@@ -258,7 +275,8 @@ jQuery(document).ready(function ($) {
                             // Create a new image element
                             var imgElement = $('<img class="wall-img">')
                                 .attr('src', selectedDesign[j].imageUrl)
-                                .attr('alt', selectedDesign[j].design);
+                                .attr('alt', selectedDesign[j].design)
+                                .addClass(selectSize); // Add the 'size' class
 
                             // Append the image to the current tile
                             tileElement.append(imgElement);
@@ -274,7 +292,7 @@ jQuery(document).ready(function ($) {
             // Append the column to the wall
             wallContainer.append(colElement);
         }
-        wallContainer.addClass('border border-white border-opacity-10 shadow p-2')
+        wallContainer.addClass('shadow')
     }
 
 });

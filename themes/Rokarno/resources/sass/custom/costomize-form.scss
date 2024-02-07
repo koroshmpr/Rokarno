@@ -17,14 +17,10 @@
     padding: 2px 7px;
     transition: all 0.2s linear;
     &:hover , &.active {
-      background-color: $dark;
+      background-color: $primary;
       color:white;
     }
   }
-}
-.tileContainer #tile {
-  border: 1px solid $info;
-  padding:5px;
 }
 #tile , .wall-tile {
   transition: background-color 0.3s ease-out;
@@ -42,6 +38,11 @@
     width:calc(100% / 12 - 1px );
     object-fit: cover;
   }
+  img.Rectangle-tile {
+    width:calc(100% / 5 - 1px );
+    aspect-ratio: 2/1;
+}
+
 }
 .choose-tile {
   width: 40px;

@@ -11,7 +11,66 @@ $(document).ready(function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    let lan = currentLanguage.language ;
+    const toggleScrollClass = function () {
+        if (window.scrollY > 30) {
+            document.body.classList.add('scrolled');
+        } else {
+            document.body.classList.remove('scrolled');
+        }
+    };
+    window.addEventListener('scroll', toggleScrollClass);
     AOS.init();
+    function addCollapse(menuId, iconClass) {
+        // Select the menu by its ID
+        let menu = $(`#${menuId}`);
+
+        // Counter for generating unique IDs
+        let uniqueIdCounter = 1;
+
+        // Find <li> elements with the "menu-item-has-children" class
+        menu.find('li.menu-item-has-children').each(function () {
+            let listItem = $(this);
+
+            // Find the anchor link
+            let anchor = listItem.children('a');
+            let anchorHref = anchor.attr('href');
+            let hasLink = anchorHref && anchorHref !== '#';
+
+            // Generate a unique ID for the submenu
+            let submenuId = `${menuId}-submenu-${uniqueIdCounter}`;
+
+            // Add a button after the anchor link
+            anchor.after(`<button type="button" class="btn btn-link ${iconClass} collapsed" data-bs-toggle="collapse" data-bs-target="#${submenuId}">
+                    <svg  width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                    </svg>
+                </button>`);
+
+            // Set attributes for Bootstrap collapse
+            let submenu = listItem.find('ul.sub-menu');
+            submenu.attr('id', submenuId);
+            submenu.addClass('collapse');
+
+            // Increment the unique ID counter
+            uniqueIdCounter++;
+
+            if (hasLink == false) {
+                anchor.removeAttr('href'); // Remove href to prevent navigation
+                anchor.attr('data-bs-toggle', 'collapse');
+                anchor.attr('data-bs-target', `#${submenuId}`);
+            }
+
+            // Prevent the button from following the link
+            anchor.next('button').on('click', function (event) {
+                event.preventDefault();
+            });
+        });
+    }
+
+
+    addCollapse('navbarTogglerMenu' ,'text-white');
+    addCollapse('navbarHomeMenu' ,'text-white');
     const cursor = document.getElementById('cursor');
     const stalker = document.getElementById('stalker');
     const allLinks = document.querySelectorAll('a');
@@ -34,8 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
     addEventListeners(allLinks);
     addEventListeners(allButtons);
     document.addEventListener('mousemove', (event) => {
-
-        const x = event.clientX;
+        let x = event.clientX;
+        if (lan && lan !== 'en') {
+            x = x - window.screen.width;
+        }
         const y = event.clientY;
         cursor.style.transform = `translate(${x}px, ${y}px)`;
         stalker.style.transform = `translate(${x}px, ${y}px)`;
@@ -91,35 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         disableOnInteraction: false,
     });
-    // const card = new Swiper('.card-slide', {
-    //     loop: false,
-    //     effect: 'slide',
-    //     speed: 500,
-    //     slidesPerView: 1.2,
-    //     spaceBetween: 20,
-    //     grabCursor: true,
-    //     direction: 'horizontal',
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true
-    //     },
-    //     navigation: {
-    //         nextEl: '.swiper-button-next',
-    //         prevEl: '.swiper-button-prev',
-    //     },
-    //     breakpoints: {
-    //         992: {
-    //             slidesPerView: 6,
-    //
-    //         }
-    //     },
-    //     autoplay: {
-    //         delay: 5000,
-    //     },
-    //     disableOnInteraction: false,
-    // });
     const heroSlider = new Swiper('.hero_slider', {
-        direction: 'horizontal',
+        direction: 'vertical',
         slidesPerView: 1,
         spaceBetween: 0,
         grabCursor: true,
@@ -127,10 +161,16 @@ document.addEventListener('DOMContentLoaded', function () {
             invert: false,
             sensitivity: 3
         },
-        speed: 1500,
+        speed: 700,
         keyboard: {
             enabled: true,
             onlyInViewport: true, // Ensures the keyboard control only works when Swiper is in viewport
+        },
+        breakpoints: {
+            968: {
+                direction: 'horizontal',
+                speed: 1500,
+            },
         },
         effect: 'slide',
         on: {
@@ -169,4 +209,31 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+    // Add code to auto-scroll after 5 seconds on mobile
+    // const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    // if (isMobile) {
+    //     setTimeout(() => {
+    //         // Get the current position
+    //         const currentPosition = heroSlider.translate;
+    //
+    //         // Calculate the position to slide to
+    //         const newPosition = currentPosition - 50;
+    //
+    //         // Apply transition to the swiper wrapper
+    //         heroSlider.wrapperEl.style.transition = 'transform 0.5s ease';
+    //
+    //         // Slide to the new position
+    //         heroSlider.setTranslate(newPosition);
+    //
+    //         // After a short delay, slide back to the original position
+    //         setTimeout(() => {
+    //             // Apply transition to the swiper wrapper
+    //             heroSlider.wrapperEl.style.transition = 'transform 0.5s ease';
+    //
+    //             heroSlider.setTranslate(currentPosition);
+    //         }, 400); // Time for sliding back after 2000 milliseconds
+    //     }, 8000); // Time to wait before auto-scrolling starts (5 seconds)
+    // }
+
+
 })

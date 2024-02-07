@@ -1,4 +1,7 @@
-<div class="position-absolute <?= $args['containerClass'] ?? ''; ?> start-0 d-flex flex-column opacity-lg-25">
+<?php
+global $cur_lan;
+?>
+<div class="position-absolute <?= $args['containerClass'] ?? ''; ?> <?= $cur_lan == 'en' ? 'start-0' : 'end-0';?> d-flex flex-column opacity-lg-25">
         <span data-aos="fade-down" data-aos-delay="1000" data-aos-duration="800">
             <?php
             $args = array(

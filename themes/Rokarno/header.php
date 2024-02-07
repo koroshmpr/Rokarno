@@ -11,17 +11,17 @@
 </head>
 
 <body <?php body_class('page-transition'); ?> >
-<header id="mainHeader" class="position-absolute text-white z-2">
+<div id="cursor"></div>
+<div id="stalker"></div>
+<header id="mainHeader" class="text-white z-2">
 <?php get_template_part('template-parts/Layout/header');
 
-//if (!is_shop() && !is_product_category() && !is_singular('product')) {
-//    get_template_part('template-parts/preload/preload-fa');
-//}
+if (!is_shop() && !is_category() && !is_product_category() && !is_singular(array('product', 'post'))) {
+    get_template_part('template-parts/preload/preload-fa');
+}
 ?>
 
 </header>
-<div id="cursor"></div>
-<div id="stalker"></div>
 <main class="min-vh-100 bg-secondary">
 
 

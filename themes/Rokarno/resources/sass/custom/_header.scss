@@ -1,7 +1,9 @@
-body.scrolled {
-
+body {
+  overflow-x: hidden;
+&.scrolled {
 }
 
+}
 main {
   overflow: hidden;
 }
@@ -12,15 +14,9 @@ main {
   }
 }
 
-//.current-menu-item a ,
-//current_page_item a {
-//  color:$dark!important;
-//  border-bottom: 2px solid $dark;
-//  font-weight: bold;
-//}
 // menu hover style
-.desktop-menu a,
-.current-menu-item a {
+.desktop-menu .nav-link:first-child,
+.current-menu-item > .nav-link:first-child {
   background: linear-gradient(90deg, $white 50%, $dark 50%) no-repeat 0;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -29,13 +25,11 @@ main {
   background-size: 200%;
   position: relative;
   transition: all 400ms ease-out;
-
   &:hover {
     background-position: 100%;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
   }
-
   &::after {
     content: '';
     opacity: 0;
@@ -51,19 +45,35 @@ main {
     background-color: $dark;
     transition: transform 500ms ease-out, opacity 500ms ease-out;
   }
-
-  &:hover::after,
-  &.current-menu-item::after {
+  &:hover::after{
     transform: scaleX(1);
     opacity: 1;
     transform-origin: right;
   }
 }
-
-.current-menu-item a {
+.current-product_cat-ancestor .nav-link:first-child,
+.current_page_parent .nav-link:first-child,
+.current-menu-item > .nav-link:first-child {
   background-position: 100%;
   &::after {
     transform: scaleX(1);
     opacity: 1 !important;
+  }
+}
+.menu-item-has-children {
+  ul.sub-menu {
+    list-style:none;
+    padding: 5px 10px
+  }
+  position:relative;
+  button {
+    transition:all 0.2s linear;
+    transform-origin:center;
+    position:absolute;
+    top:0;
+    left:0;
+    &:not(.collapsed) {
+      transform:rotate(180deg)
+    }
   }
 }

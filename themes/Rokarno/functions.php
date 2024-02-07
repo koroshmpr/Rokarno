@@ -2,13 +2,25 @@
 /**
  * Enqueue scripts and styles.
  */
+// Define a global variable to store the current language
+global $cur_lan;
+$cur_lan = apply_filters('wpml_current_language', NULL);
+
 function houger_scripts()
 {
-    wp_enqueue_style('Ravi', get_template_directory_uri() . '/public/fonts/Ravi/fontface.css', array());
+//    wp_enqueue_style('Ravi', get_template_directory_uri() . '/public/fonts/Ravi/fontface.css', array());
+    wp_enqueue_style('Yekan', get_template_directory_uri() . '/public/fonts/YekanBakh/fontface.css', array());
     wp_enqueue_style('Play', get_template_directory_uri() . '/public/fonts/Play/fontface.css', array());
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/public/css/style.css', array());
+    wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/public/css/editor.css', array());
 
-    wp_enqueue_script('main-js', get_template_directory_uri() . '/public/js/app.js', array(), true);
+    wp_enqueue_script('main-js', get_template_directory_uri() . '/public/js/app.js', array(), null, true);
+    global $cur_lan;
+    $cur_lan = apply_filters('wpml_current_language', NULL);
+    // Localize directly in main-js
+    wp_localize_script('main-js', 'currentLanguage', array(
+        'language' => $cur_lan,
+    ));
     if (is_page_template('customize.php')) {
         // Enqueue the JavaScript file
         wp_enqueue_script('customize-js', get_template_directory_uri() . '/public/js/costomize.js', array(), true);
@@ -129,7 +141,7 @@ function custom_menu_item_classes($classes, $item, $args) {
     // Check if the current page is a product, category, or single product page
     if (is_product() || is_product_category() || is_singular('product')) {
         // Check if the menu item is the "Shop" page
-        if ($item->title == 'Shop' or $item->title == 'Products' ) {
+        if ($item->title == 'Shop' or $item->title == 'Products' or  $item->title == 'محصولات') {
             // Add your custom class to the classes array
             $classes[] = 'current-menu-item';
         }
@@ -139,7 +151,6 @@ function custom_menu_item_classes($classes, $item, $args) {
 }
 
 add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
-
 //function custom_post_type_args( $args, $post_type ) {
 //    // Change 'project' to the slug of your custom post type
 //    if ( 'portfolio' === $post_type ) {

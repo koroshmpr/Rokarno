@@ -1,5 +1,5 @@
-<aside class="col-lg-3 col-11 px-lg-4 px-2 order-last mb-5 mb-lg-0">
-    <div class="row p-2 pb-1 border border-white border-opacity-25 mt-3 mt-lg-0" id="category-dropdown">
+<aside class="row justify-content-center col-lg-3 col-11 px-lg-4 px-2 order-first order-lg-last mb-5 mb-lg-0">
+    <div class="row p-2 pb-1 border border-white border-opacity-25 mt-3 mt-lg-0 justify-content-end" id="category-dropdown">
         <?php
         $categories = get_terms(array(
             'taxonomy' => 'product_cat',
@@ -40,11 +40,8 @@
 
                         echo ($is_current_subcategory) ? '<div' : '<a';
                         echo ($is_current_subcategory) ? '' : ' href="' . esc_url(get_term_link($subcat, $subcat->taxonomy)) . '"';
-                        echo ' class="my-1 col-11 ' . $subcat_class . ' bg-white text-primary bg-opacity-50 d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+                        echo ' class="my-1 col-11 ' . $subcat_class . ' bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
                         echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $subcat->name . '</h6>';
-                        echo '<p class="mb-0 text-primary small fw-bold pe-2 ms-auto">';
-                        echo $subcat->count . '<span class="ps-1">کالا</span>';
-                        echo '</p>';
                         echo ($is_current_subcategory) ? '</div>' : '</a>';
 
                         wp_reset_postdata(); // Reset Query for child categories
