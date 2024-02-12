@@ -6,13 +6,13 @@ get_header(); ?>
     <img class="img-fluid contact-hero object-fit-cover col-lg-12" src="<?= get_field('image')['url'] ?? '' ?>" alt="rokarno about">
 </section>
 <section class="h-100">
-    <div class="row justify-content-center bg-secondary my-5">
-        <h1 data-aos="fade-down" data-aos-duration="1000"  class="text-center <?= $cur_lan == 'en' ? 'text-lg-end' : 'text-lg-start' ?> display-1 py-3 text-primary fw-bold">
+    <div class="row justify-content-center bg-secondary my-3">
+        <h1 data-aos="fade-down" data-aos-duration="1000"  class="text-center <?= $cur_lan == 'en' ? 'text-lg-end mb-0' : 'text-lg-start' ?> display-2 text-primary fw-bold">
             <!--            --><?php //= get_field('title'); ?>
             <?= get_the_title(); ?>
         </h1>
         <div class="col">
-            <article class="p-4 p-lg-5 text-dark text-justify fs-6">
+            <article class="p-4 py-lg-3 px-lg-0 col-lg-11 text-dark text-justify fs-6">
                 <?= get_field('about_desctiption'); ?>
             </article>
         </div>
@@ -22,7 +22,7 @@ get_header(); ?>
 $personnelSwitch = get_field('personnels-switch');
 if ($personnelSwitch) {
     ?>
-    <section class="py-5 px-0" data-aos="fade-up">
+    <section class="py-3 px-0" data-aos="fade-up">
         <div class="swiper card-slide">
             <div class="swiper-wrapper">
                 <?php

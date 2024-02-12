@@ -6,12 +6,12 @@ get_header(); ?>
     <div class="row gap-4 position-relative">
         <img class="contact-hero col-lg-12 px-0 img-fluid object-fit-cover" data-aos="fade-down"
              src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= get_the_title(); ?>">
-        <div class="position-absolute top-lg-25 top-50 translate-middle-y start-0 p-0 end-0 row justify-content-lg-start justify-content-center">
-            <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000"
-                class="col-lg-6 p-0 m-0 px-lg-4 display-1 text-center text-lg-start text-white fw-bold"> <?= get_the_title(); ?></h1>
-        </div>
+<!--        <div class="position-absolute top-lg-25 top-50 translate-middle-y start-0 p-0 end-0 row justify-content-lg-start justify-content-center">-->
+<!--            <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000"-->
+<!--                class="col-lg-6 p-0 m-0 px-lg-4 display-1 text-center text-lg-start text-white fw-bold"> --><?php //= get_the_title(); ?><!--</h1>-->
+<!--        </div>-->
     </div>
-    <div class="py-5 px-lg-5">
+    <div class="py-3 px-lg-5">
         <div class="row justify-content-center">
             <div class="row-cols-lg-2 row justify-content-center">
                 <div class="p-4 py-lg-0 row gap-3 justify-content-center">

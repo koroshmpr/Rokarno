@@ -10,7 +10,7 @@
                          src="<?= $image['url']; ?>" alt="<?= $image['title']; ?>" style="height: 600px"/>
                     <?php if ($imageMobile) { ?>
                         <img class="w-100 object-fit-cover h-auto d-lg-none" src="<?= $imageMobile['url']; ?>"
-                             alt="<?= $imageMobile['title']; ?>" style="height: 600px"/>
+                             alt="<?= $imageMobile['title']; ?>" />
                     <?php } ?>
                 </div>
             <?php endwhile; ?>

@@ -32,27 +32,27 @@ global $cur_lan;
                     </ul>
                 </article>
                 <!--            shape-->
-                <article class="d-flex col-xl-5 flex-wrap flex-lg-nowrap gap-2 align-items-lg-center">
-                    <h5 class="mb-0 text-primary col-auto fw-bold fs-4"><?=  esc_html__('Shape', 'rokarno');  ?> :</h5>
-                    <ul class="list-unstyled d-flex gap-2 align-content-center mb-0 lh-2 tile-shape">
-                        <li data-size="square-tile" data-length="144" class="active">
-                            <svg width="16" height="16" fill="currentColor"
-                                 class="bi bi-square" viewBox="0 0 16 16">
-                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                            </svg>
-                        </li>
-                        <li data-size="Rectangle-tile" data-length="50">
-                            <svg width="16" height="16" fill="currentColor" class="bi bi-stop-btn" viewBox="0 0 16 16">
-                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
-                            </svg>
-                        </li>
-                        <li data-size="hexagon-tile">
-                            <svg width="16" height="16" fill="currentColor" class="bi bi-hexagon" viewBox="0 0 16 16">
-                                <path d="M14 4.577v6.846L8 15l-6-3.577V4.577L8 1zM8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866z"/>
-                            </svg>
-                        </li>
-                    </ul>
-                </article>
+<!--                <article class="d-flex col-xl-5 flex-wrap flex-lg-nowrap gap-2 align-items-lg-center">-->
+<!--                    <h5 class="mb-0 text-primary col-auto fw-bold fs-4">--><?php //=  esc_html__('Shape', 'rokarno');  ?><!-- :</h5>-->
+<!--                    <ul class="list-unstyled d-flex gap-2 align-content-center mb-0 lh-2 tile-shape">-->
+<!--                        <li data-size="square-tile" data-length="144" class="active">-->
+<!--                            <svg width="16" height="16" fill="currentColor"-->
+<!--                                 class="bi bi-square" viewBox="0 0 16 16">-->
+<!--                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>-->
+<!--                            </svg>-->
+<!--                        </li>-->
+<!--                        <li data-size="Rectangle-tile" data-length="50">-->
+<!--                            <svg width="16" height="16" fill="currentColor" class="bi bi-stop-btn" viewBox="0 0 16 16">-->
+<!--                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>-->
+<!--                            </svg>-->
+<!--                        </li>-->
+<!--                        <li data-size="hexagon-tile">-->
+<!--                            <svg width="16" height="16" fill="currentColor" class="bi bi-hexagon" viewBox="0 0 16 16">-->
+<!--                                <path d="M14 4.577v6.846L8 15l-6-3.577V4.577L8 1zM8.5.134a1 1 0 0 0-1 0l-6 3.577a1 1 0 0 0-.5.866v6.846a1 1 0 0 0 .5.866l6 3.577a1 1 0 0 0 1 0l6-3.577a1 1 0 0 0 .5-.866V4.577a1 1 0 0 0-.5-.866z"/>-->
+<!--                            </svg>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </article>-->
                 <article class="d-flex flex-wrap flex-lg-nowrap gap-lg-4 gap-2 align-items-lg-center">
                     <h5 class="mb-0 fs-4 text-primary fw-bold lh-lg text-center text-lg-start col-auto"><?=  esc_html__('Design', 'rokarno');  ?> :</h5>
                     <div class="row row-cols-2 row-cols-xl-4 align-content-center">
@@ -63,9 +63,9 @@ global $cur_lan;
                         for ($i = 1; $i <= $chooseTileNumber; $i++) {
                             ?>
 
-                            <div class="choose-tile__container bg-opacity-25">
-                                <button type="button" data-bs-target="#exampleModal" data-bs-toggle="modal"
-                                        data-design="Color <?= $i; ?>" class="choose-tile btn text-primary fw-bold bg-transparent">
+                            <div class="choose-tile__container bg-opacity-25 gap-4">
+                                <button type="button" data-bs-target="#exampleModal" data-bs-toggle="modal" data-slot="<?= $i; ?>"
+                                        data-design="<?=  esc_html__('Color', 'rokarno'); ?> <?= $i; ?>" class="choose-tile btn text-primary fw-bold bg-transparent">
                                     <?=  esc_html__('Color', 'rokarno'); ?> <?= $i; ?>
                                 </button>
                                 <input type="number" class="percentage-input" placeholder="%" min="0" max="100">
@@ -96,7 +96,7 @@ global $cur_lan;
     </div>
 </section>
 <section class="col-lg-10 text-center pb-5 mb-5">
-    <div id="wall" class="wall col-lg-6 col-12 justify-content-center row row-cols-5 mx-auto"></div>
+    <div id="wall" class="wall col-lg-6 col-12 justify-content-center row row-cols-5 mx-auto" <?= $cur_lan == 'en' ? '' : 'style="direction:ltr;"';?>></div>
 </section>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

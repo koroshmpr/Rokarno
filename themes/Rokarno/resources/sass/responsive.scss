@@ -55,7 +55,10 @@
 @include media-breakpoint-down(lg) {
   .wpml-ls-statics-shortcode_actions {
     margin-top:auto;
-    margin-bottom:20px
+    margin-bottom:20px;
+    ul {
+      width:auto!important;
+    }
   }
   #mainHeader {
     position: absolute;

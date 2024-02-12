@@ -105,3 +105,7 @@ a , .no-decoration {
 ::-webkit-scrollbar-thumb {
   background: $primary;
 }
+*::selection {
+  background: $primary;
+  color:white!important;
+}

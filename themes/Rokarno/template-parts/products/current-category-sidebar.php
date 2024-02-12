@@ -1,6 +1,7 @@
 <aside class="row justify-content-center col-lg-3 col-11 px-lg-4 px-2 order-first order-lg-last mb-5 mb-lg-0">
-    <div class="row p-2 pb-1 border border-white border-opacity-25 mt-3 mt-lg-0 justify-content-end" id="category-dropdown">
+    <div class="row p-2 pb-1 border border-white border-opacity-25 justify-content-end" id="category-dropdown">
         <?php
+        global $cur_lan;
         $current_category_id = get_queried_object_id(); // Get the current category ID
 
         // Get the current category
@@ -12,13 +13,12 @@
         // Display parent categories
         foreach (array_reverse($ancestors) as $ancestor_id) {
             $ancestor = get_term($ancestor_id, 'product_cat');
-            echo '<div class="my-1 col-12 border-end border-5 border-primary border-opacity-75 bg-opacity-75 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+            echo '<div class="my-1 col-12 border-' . ($cur_lan == 'en' ? 'end' : 'start') . ' border-5 border-primary border-opacity-75 bg-opacity-75 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
             echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $ancestor->name . '</h6>';
             echo '</div>';
         }
-
         // Display the current category
-        echo '<div class="my-1 col-11 border-end border-5 border-primary border-opacity-75 bg-opacity-75 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+        echo '<div class="my-1 col-11 border-' . ($cur_lan == 'en' ? 'end' : 'start') . ' border-5 border-primary border-opacity-75 bg-opacity-75 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
         echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $current_category->name . '</h6>';
         echo '</div>';
 

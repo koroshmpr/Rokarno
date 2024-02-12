@@ -24,6 +24,9 @@ function houger_scripts()
     if (is_page_template('customize.php')) {
         // Enqueue the JavaScript file
         wp_enqueue_script('customize-js', get_template_directory_uri() . '/public/js/costomize.js', array(), true);
+        wp_localize_script('customize-js', 'currentLanguage', array(
+            'language' => $cur_lan,
+        ));
     }
 }
 

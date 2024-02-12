@@ -20,12 +20,13 @@ $categories = get_terms(array(
 ));
 
 $current_category_id = get_queried_object_id(); // Get the current category ID
-
+global $cur_lan;
 ?>
 <?php get_template_part('template-parts/products/archive-hero'); ?>
 
-<section class="py-lg-5">
-    <section class="row col-lg-11 py-5 align-items-start justify-content-center justify-content-lg-start">
+<section class="py-lg-4">
+    <h1 class="text-primary text-opacity-75 pb-lg-3 pt-lg-0 py-3 mb-0 text-center text-lg-<?= $cur_lan == 'en' ? 'end' : 'start';?>"><?= get_the_title(); ?></h1>
+    <section class="row col-lg-11 py-lg-5 align-items-start justify-content-center justify-content-lg-start">
         <div class="col-lg-9 row row-cols-lg-5 row-cols-2 justify-content-lg-start justify-content-center">
             <?php
             // Custom query to retrieve products associated with the current category

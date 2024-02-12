@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+    let lan = currentLanguage.language ;
     let tileNumber = 144;
     let selectSize = '';
     let selectedDesignsWithChances = [];
@@ -117,6 +118,7 @@ jQuery(document).ready(function ($) {
         $(this).addClass("active");
         var size = $(this).data("size");
         var length = $(this).data('length');
+        var slot = $(this).data('slot');
         if(length) {
             tileNumber = length
         }if (!length) {
@@ -175,6 +177,7 @@ jQuery(document).ready(function ($) {
         var selectedDesignsWithChances = $('[data-design]').map(function () {
             var designElement = $(this); // Save the current element
             var design = designElement.data('design');
+            var slot = designElement.data('slot');
             var imageUrl = designElement
                 .css('background-image')
                 .replace(/^url\(["']?/, '')
@@ -191,12 +194,13 @@ jQuery(document).ready(function ($) {
                 // Push the information to the array
                 selectedDesignsLog.push({
                     design: design,
+                    slot: slot,
                     imageUrl: imageUrl,
                     chance: chance,
                     size: size // Add 'size' to the stored information
                 });
 
-                return { design: design, imageUrl: imageUrl, chance: chance, size: size };
+                return { design: design, imageUrl: imageUrl, chance: chance, size: size , slot: slot };
             }
             if (imageUrl == 'none' && chance == 0) {
                 designElement.parent().removeClass('bg-danger bg-primary');
@@ -228,17 +232,28 @@ jQuery(document).ready(function ($) {
                 cumulativeChance += selectedDesignsWithChances[j].chance;
 
                 if (randomChance <= cumulativeChance) {
+                    // Generate a random opacity class
+                    var opacityClass = getRandomOpacityClass();
                     // Create a new image element with the 'tile-img' class and 'size' class
                     var imgElement = $('<img class="tile-img">')
                         .attr('src', selectedDesignsWithChances[j].imageUrl)
                         .attr('alt', selectedDesignsWithChances[j].design)
-                        .addClass(selectSize); // Add the 'size' class
-
+                        .attr('slot' , selectedDesignsWithChances[j].slot)
+                        .addClass(selectSize) // Add the 'size' class
+                        .addClass(opacityClass);
                     // Append the image to #tile
                     tileContainer.append(imgElement);
                     break;
                 }
             }
+        }
+        function getRandomOpacityClass() {
+            // Define an array of opacity classes
+            var opacityClasses = ['opacity-75', 'opacity-50', 'opacity-100'];
+            // Generate a random index within the range of opacityClasses array
+            var randomIndex = Math.floor(Math.random() * opacityClasses.length);
+            // Return the randomly selected opacity class
+            return opacityClasses[randomIndex];
         }
         selectedDesign = selectedDesignsWithChances;
     }
@@ -272,15 +287,25 @@ jQuery(document).ready(function ($) {
                         cumulativeChance += selectedDesign[j].chance;
 
                         if (randomChance <= cumulativeChance) {
+                            var opacityClass = getRandomOpacityClass();
                             // Create a new image element
                             var imgElement = $('<img class="wall-img">')
                                 .attr('src', selectedDesign[j].imageUrl)
                                 .attr('alt', selectedDesign[j].design)
+                                .addClass(opacityClass)
                                 .addClass(selectSize); // Add the 'size' class
 
                             // Append the image to the current tile
                             tileElement.append(imgElement);
                             break;
+                        }
+                        function getRandomOpacityClass() {
+                            // Define an array of opacity classes
+                            var opacityClasses = ['opacity-75', 'opacity-50', 'opacity-100'];
+                            // Generate a random index within the range of opacityClasses array
+                            var randomIndex = Math.floor(Math.random() * opacityClasses.length);
+                            // Return the randomly selected opacity class
+                            return opacityClasses[randomIndex];
                         }
                     }
                 }
