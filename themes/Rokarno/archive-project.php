@@ -1,12 +1,12 @@
 <?php
-/** Template Name: portfolio archive */
-
+/** Template Name: project archive */
+global $cur_lan;
 get_header(); ?>
     <div class="py-5 px-lg-5">
 
         <?php
         $args = array(
-            'post_type' => 'portfolio',
+            'post_type' => 'project',
             'post_status' => 'publish',
             'order' => 'DESC',
             'posts_per_page' => '-1',
@@ -17,10 +17,10 @@ get_header(); ?>
         $i = 0;
         /* Start the Loop */
         ?>
-        <div class="row row-cols-md-2 row-cols-1 gy-3 py-5 overflow-hidden">
+        <div class="row row-cols-md-2 row-cols-1 gy-3 py-5 px-2 px-lg-0 overflow-hidden">
             <?php while ($loop->have_posts()) :
                 $loop->the_post(); ?>
-                <div data-aos="fade-<?= $i % 2 == 0 ? 'right' : 'left'; ?>">
+                <div data-aos="fade-<?= $cur_lan == 'en' ? ($i % 2 == 0 ? 'right' : 'left') : ($i % 2 == 0 ? 'left' : 'right'); ?>">
                     <img class="object-fit img-fluid ratio-1x1" height="250" src="<?php echo esc_url(the_post_thumbnail_url()); ?>"
                          alt="<?php echo get_the_title(); ?>">
                     <h5 class="p-3 bg-white fw-bold bg-opacity-25 text-primary d-flex align-items-center gap-2">

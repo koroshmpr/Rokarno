@@ -31,10 +31,11 @@ $wrapper_classes = apply_filters(
     array(
         'd-flex',
         'justify-content-center',
+        'justify-content-lg-start',
         'position-relative',
         'woocommerce-product-gallery--' . ($post_thumbnail_id ? 'with-images' : 'without-images'),
         'px-0',
-        'overflow-hiddem',
+        'overflow-hidden',
         'col-lg-5',
         'col-12'
     )
@@ -96,7 +97,7 @@ $wrapper_classes = apply_filters(
                 <?php } ?>
 
             </div>
-            <div class="swiper-pagination position-static mt-4"></div>
+<!--            <div class="swiper-pagination position-static mt-4"></div>-->
         </div>
     </figure>
     <script>

@@ -53,6 +53,12 @@
   }
 }
 @include media-breakpoint-down(lg) {
+  .menu-item-has-children ul.sub-menu button {
+    top: 10px!important;
+  }
+  body.rtl .product_card .btn-custom:before {
+    width: 50%!important;
+  }
   .wpml-ls-statics-shortcode_actions {
     margin-top:auto;
     margin-bottom:20px;
@@ -83,7 +89,7 @@
     transform:translateY(-100px);
   }
   .contact-hero , .about-hero {
-    height:400px;
+    height:auto;
   }
   .h-35 {
     height:35%
@@ -124,7 +130,7 @@
   .fs-5 { font-size: 0.9rem !important;  }
   .fs-6, p, span {
     font-size: 1rem !important;
-    line-height: 1.7;
+    line-height: normal;
   }
   small, .small { font-size: 0.875rem !important; }
 }

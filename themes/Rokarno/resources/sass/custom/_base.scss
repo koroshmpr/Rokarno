@@ -109,3 +109,9 @@ a , .no-decoration {
   background: $primary;
   color:white!important;
 }
+.d-rtl {
+  direction:ltr!important;
+}
+ .d-ltr {
+   direction:rtl!important;
+ }

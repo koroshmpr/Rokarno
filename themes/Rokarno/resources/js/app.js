@@ -129,7 +129,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
-
+    const postSlider = new Swiper('.post_swiper', {
+        loop: false,
+        effect: 'slide',
+        speed: 500,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grabCursor: true,
+        centeredSlides: true,
+        direction: 'horizontal',
+        breakpoints: {
+            968: {
+                slidesPerView: 4,
+                centeredSlides: false,
+                autoplay : false
+            },
+        },
+        autoplay: {
+            delay: 5000,
+        },
+        pagination: {
+            el: '.post-pagination',
+            bulletActiveClass: 'active',
+            clickable: true
+        },
+        navigation: {
+            nextEl: '.post-button-next',
+            prevEl: '.post-button-prev',
+        },
+        disableOnInteraction: false,
+    });
     const swiper = new Swiper('.product_image_swiper', {
         loop: false,
         effect: 'slide',
@@ -209,31 +238,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-    // Add code to auto-scroll after 5 seconds on mobile
-    // const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    // if (isMobile) {
-    //     setTimeout(() => {
-    //         // Get the current position
-    //         const currentPosition = heroSlider.translate;
-    //
-    //         // Calculate the position to slide to
-    //         const newPosition = currentPosition - 50;
-    //
-    //         // Apply transition to the swiper wrapper
-    //         heroSlider.wrapperEl.style.transition = 'transform 0.5s ease';
-    //
-    //         // Slide to the new position
-    //         heroSlider.setTranslate(newPosition);
-    //
-    //         // After a short delay, slide back to the original position
-    //         setTimeout(() => {
-    //             // Apply transition to the swiper wrapper
-    //             heroSlider.wrapperEl.style.transition = 'transform 0.5s ease';
-    //
-    //             heroSlider.setTranslate(currentPosition);
-    //         }, 400); // Time for sliding back after 2000 milliseconds
-    //     }, 8000); // Time to wait before auto-scrolling starts (5 seconds)
-    // }
-
 
 })

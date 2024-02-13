@@ -8,11 +8,10 @@ get_header(); ?>
 <section class="h-100">
     <div class="row justify-content-center bg-secondary my-3">
         <h1 data-aos="fade-down" data-aos-duration="1000"  class="text-center <?= $cur_lan == 'en' ? 'text-lg-end mb-0' : 'text-lg-start' ?> display-2 text-primary fw-bold">
-            <!--            --><?php //= get_field('title'); ?>
             <?= get_the_title(); ?>
         </h1>
         <div class="col">
-            <article class="p-4 py-lg-3 px-lg-0 col-lg-11 text-dark text-justify fs-6">
+            <article class="p-3 py-lg-3 px-lg-0 col-lg-11 text-dark text-justify fs-6">
                 <?= get_field('about_desctiption'); ?>
             </article>
         </div>

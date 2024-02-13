@@ -5,7 +5,8 @@ global $cur_lan;
 <div class="swiper-slide d-flex flex-column align-items-xxl-<?= $cur_lan == 'en' ? 'start' : 'end';?> align-items-center">
     <div class="position-absolute <?= $cur_lan == 'en' ? 'start-0' : 'end-0';?> top-0 col-2 h-auto d-none d-lg-inline">
         <div class="w-100 animate-img animate-img-x vh-65 object-fit z-2" style="background: url('<?php echo $slide1['img']['url'] ?? ''; ?>');"></div>
-            <div class="position-absolute top-75 <?= $cur_lan == 'en' ? 'end-0' : 'start-0';?> d-flex flex-column opacity-lg-25">
+           <div class="position-relative">
+               <div class="position-absolute <?= $cur_lan == 'en' ? 'end-0' : 'start-0';?> d-flex flex-column opacity-lg-25" style="top:-150px;">
                 <span data-aos="zoom-in" data-aos-delay="800" data-aos-duration="600">
                     <?php
                     $args = array(
@@ -16,7 +17,7 @@ global $cur_lan;
                     get_template_part('template-parts/svg/tales/tale', null, $args);
                     ?>
                 </span>
-                <span data-aos="zoom-in" data-aos-delay="900" data-aos-duration="600">
+                   <span data-aos="zoom-in" data-aos-delay="900" data-aos-duration="600">
                     <?php
                     $args = array(
                         'class' => '',
@@ -26,7 +27,7 @@ global $cur_lan;
                     get_template_part('template-parts/svg/tales/tale', null, $args);
                     ?>
                  </span>
-                <span data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="600">
+                   <span data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="600">
                         <?php
                         $args = array(
                             'class' => 'translate-x-100',
@@ -36,7 +37,8 @@ global $cur_lan;
                         get_template_part('template-parts/svg/tales/tale', null, $args);
                         ?>
                 </span>
-            </div>
+               </div>
+           </div>
     </div>
     <div class="d-flex h-lg-65 h-50 flex-column justify-content-end <?= $cur_lan == 'en' ? '' : 'align-items-end';?>"
          data-aos="fade-up" data-aos-delay="1000" data-aos-duration="500">
@@ -46,7 +48,7 @@ global $cur_lan;
                 <?= $slide1['big_title_colored']; ?>
             </p>
         </h2>
-            <p class="text-primary col-12 <?= $cur_lan == 'en' ? 'col-lg-8' : 'col-lg-4 ms-auto';?> px-2 px-lg-3 fs-4">2012</p>
+        <p class="text-primary col-12 <?= $cur_lan == 'en' ? 'col-lg-8' : 'col-lg-4 ms-auto';?> px-2 px-lg-3 fs-4">2012</p>
     </div>
     <figure class="col-lg-7 mb-0 h-lg-35 h-50 <?= $cur_lan == 'en' ? 'ms-auto' : 'me-auto';?>" data-aos="fade-up" data-aos-duration="1000">
         <video id="homeVideo" class="object-fit h-100" poster="<?= $slide1['video_cover']['url'] ?? ''; ?>" width="100%" height="auto" preload="none">

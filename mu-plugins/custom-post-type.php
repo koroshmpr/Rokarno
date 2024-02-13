@@ -2,14 +2,14 @@
 // portfolio
 function portfolio_post_types()
 {
-    register_post_type('portfolio',
-        array('supports' =>
-            array('title', 'editor', 'comments', 'excerpt', 'custom-fields', 'thumbnail'),
-            'rewrite' => array('slug' => 'portfolios'),
+    register_post_type('project', // Changed 'portfolio' to 'project'
+        array(
+            'supports' => array('title', 'editor', 'comments', 'excerpt', 'custom-fields', 'thumbnail'),
+            'rewrite' => array('slug' => 'projects'), // Changed 'portfolios' to 'projects'
             'has_archive' => true,
             'public' => true,
             'labels' => array(
-                'name' => 'نمونه کار',
+                'name' => 'نمونه کار', // Update labels as needed
                 'add_new' => 'افزودن نمونه کار جدید',
                 'add_new_item' => 'افزودن نمونه کار جدید',
                 'edit_item' => 'ویرایش نمونه کار',
@@ -19,9 +19,10 @@ function portfolio_post_types()
         ));
     register_taxonomy(
         'portfolio_categories',
-        'portfolio',
-        array('hierarchical' => true,
-            'label' => 'دسته بندی نمونه کار',
+        'project', // Changed 'portfolio' to 'project'
+        array(
+            'hierarchical' => true,
+            'label' => 'دسته بندی نمونه کار', // Update labels as needed
             'query_var' => true,
         )
     );
@@ -40,8 +41,9 @@ function portfolio_post_types()
         'add_or_remove_items' => __('Add or remove tags'),
         'choose_from_most_used' => __('Choose from the most used tags'),
         'menu_name' => __('برچسب نمونه کار'),);
-    register_taxonomy('portfolio_tag', 'portfolio',
-        array('hierarchical' => false,
+    register_taxonomy('portfolio_tag', 'project', // Changed 'portfolio' to 'project'
+        array(
+            'hierarchical' => false,
             'labels' => $labels,
             'show_ui' => true,
             'update_count_callback' =>

@@ -3,6 +3,6 @@
          alt="<?php echo get_the_title(); ?>">
     <div class="position-absolute top-0 w-100 h-100 bg-primary bg-opacity-50 card_detail d-flex flex-column justify-content-between text-white p-4">
         <h6 class="fs-6 text-center"><?= get_the_title(); ?></h6>
-        <p class="text-justify"><?= wp_trim_words(get_the_content(), 25); ?></p>
+        <p class="text-justify mb-0"><?= wp_trim_words(get_the_content(), 25); ?></p>
     </div>
 </a>

@@ -14,7 +14,7 @@ global $cur_lan;
             </div>
             <div class="col-lg-6 row align-content-center gap-0 h-65 <?= $cur_lan == 'en' ? 'text-end' : 'text-start justify-content-end';?> p-4" data-aos="fade-right" data-aos-delay="500">
                 <h3 class="display-2 fw-bold text-primary"><?= $slide3['title']; ?></h3>
-                <p class="text-dark text-opacity-75 fs-5">
+                <p class="text-dark text-opacity-75 fs-5 <?= $cur_lan == 'en' ? '' : 'd-rtl';?>">
                     <?= $slide3['content']; ?>
                 </p>
                 <a title="shop page" class="bg-dark bg-opacity-10 btn btn-custom col-4" href="<?= $slide3['btn-link']['url'] ?? ''; ?>">

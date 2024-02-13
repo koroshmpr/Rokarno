@@ -29,9 +29,9 @@ global $cur_lan;
         <div class="col-3 col-lg-2 h-100 overflow-hidden">
             <div class="animate-img animate-img-x h-100" style="background: url('<?php echo $slide2['img']['url'] ?? ''; ?>') center center / cover;"></div>
         </div>
-        <div class="col-lg-4  <?= $cur_lan == 'en' ? 'pe-3 text-end' : 'ps-3 text-start';?>" data-aos="fade-up" data-aos-delay="700">
+        <div class="col-lg-4 <?= $cur_lan == 'en' ? 'pe-3 text-end' : 'ps-3 text-start';?>" data-aos="fade-up" data-aos-delay="700">
             <h3 class="display-2 fw-bold text-primary"><?= $slide2['title']; ?></h3>
-            <p class="text-dark text-opacity-75 fs-5">
+            <p class="text-dark text-opacity-75 fs-5 <?= $cur_lan == 'en' ? '' : 'd-rtl';?>">
                 <?= $slide2['content']; ?>
             </p>
             <a class="bg-dark bg-opacity-10 btn btn-custom col-11 col-lg-6"

@@ -14,7 +14,7 @@ get_header(); ?>
     <div class="py-3 px-lg-5">
         <div class="row justify-content-center">
             <div class="row-cols-lg-2 row justify-content-center">
-                <div class="p-4 py-lg-0 row gap-3 justify-content-center">
+                <div class="p-3 py-lg-0 row gap-3 justify-content-center">
                     <h2 class="text-primary fw-bold display-3 text-center" data-aos="fade-up" data-aos-duration="1000">
                         <?= esc_html__('Headquarter', 'rokarno'); ?>
                     </h2>

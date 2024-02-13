@@ -30,13 +30,13 @@ if (is_single() && !is_product()) {
                 <div class="col-lg-6 col-12 text-center text-lg-end">
                     <?php if (get_the_post_thumbnail_url()) { ?>
                         <img src="<?php echo get_the_post_thumbnail_url() ?>"
-                             class="w-100 object-fit p-2 border border-primary" height="400"
+                             class="w-100 object-fit p-2" height="400"
                              alt="<?php the_title(); ?>">
                     <?php } ?>
                 </div>
             </section>
             <section class="row py-5 px-4 px-lg-0">
-                <article class="text-justify border-bottom border-opacity-50 border-primary pb-3 text-link">
+                <article class="text-justify border border-opacity-25 border-white py-3 bg-dark bg-opacity-10 text-link">
                     <?php the_content();
                     wp_reset_postdata();
                     ?>

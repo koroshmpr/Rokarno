@@ -70,7 +70,7 @@ main {
     transition:all 0.2s linear;
     transform-origin:center;
     position:absolute;
-    top:0;
+    top: 3px;
     left:0;
     &:not(.collapsed) {
       transform:rotate(180deg)

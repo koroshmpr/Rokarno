@@ -154,20 +154,38 @@ function custom_menu_item_classes($classes, $item, $args) {
 }
 
 add_filter('nav_menu_css_class', 'custom_menu_item_classes', 10, 3);
-//function custom_post_type_args( $args, $post_type ) {
-//    // Change 'project' to the slug of your custom post type
-//    if ( 'portfolio' === $post_type ) {
-//        // Set the with_front parameter to false
-//        $args['rewrite']['with_front'] = false;
-//    }
-//    if ( 'services' === $post_type ) {
-//        // Set the with_front parameter to false
-//        $args['rewrite']['with_front'] = false;
-//    }
-//    if ( 'clients' === $post_type ) {
-//        // Set the with_front parameter to false
-//        $args['rewrite']['with_front'] = false;
-//    }
-//    return $args;
-//}
-//add_filter( 'register_post_type_args', 'custom_post_type_args', 10, 2 );
+function custom_post_type_args( $args, $post_type ) {
+    // Change 'project' to the slug of your custom post type
+    if ( 'portfolio' === $post_type ) {
+        // Set the with_front parameter to false
+        $args['rewrite']['with_front'] = false;
+    }
+    if ( 'project' === $post_type ) {
+        // Set the with_front parameter to false
+        $args['rewrite']['with_front'] = false;
+    }
+    return $args;
+}
+add_filter( 'register_post_type_args', 'custom_post_type_args', 10, 2 );
+
+// Modify post type labels based on language
+function modify_project_post_type_labels($args, $post_type)
+{
+    global $sitepress; // Access WPML's sitepress object
+
+    // Check if WPML is active and the current language is English
+    if ($sitepress && $sitepress->get_current_language() == 'en' && $post_type === 'project') {
+        // Modify the post type labels for English language
+        $args['labels']['name'] = 'Projects';
+        $args['labels']['singular_name'] = 'Project';
+        $args['labels']['add_new'] = 'Add New Project';
+        $args['labels']['add_new_item'] = 'Add New Project';
+        $args['labels']['edit_item'] = 'Edit Project';
+        $args['labels']['all_items'] = 'All Projects';
+        // You can modify other labels as needed
+    }
+
+    return $args;
+}
+
+add_filter('register_post_type_args', 'modify_project_post_type_labels', 10, 2);

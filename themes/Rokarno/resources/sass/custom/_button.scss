@@ -215,10 +215,13 @@
     }
     .mo{
       transition:bottom .4s ease, opacity 1s ease 0.3s;
-      height: auto;
-      width:auto;
+      height: 200px;
+      width:200px;
       bottom: 0px;
       opacity: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

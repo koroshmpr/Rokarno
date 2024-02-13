@@ -14,7 +14,7 @@
  * @package     WooCommerce\Templates
  * @version     3.9.0
  */
-
+global $cur_lan;
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -28,7 +28,7 @@ if ( $related_products ) : ?>
 
 		if ( $heading ) :
 			?>
-			<h2 class="my-5 p-3 text-primary fw-bold"><?php echo esc_html( $heading ); ?></h2>
+			<h2 class="my-5 text-primary text-center text-lg-<?= $cur_lan == 'en' ? 'end' : 'start';?>  fw-bold"><?php echo esc_html( $heading ); ?></h2>
 		<?php endif; ?>
 		
 <!--		--><?php //woocommerce_product_loop_start(); ?>

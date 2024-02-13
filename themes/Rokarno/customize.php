@@ -19,14 +19,14 @@ global $cur_lan;
                 <article class="d-flex col-xl-5 flex-wrap flex-lg-nowrap gap-2 align-items-lg-center">
                     <h5 class="mb-0 col-auto text-primary fw-bold fs-4"><?=  esc_html__('Background', 'rokarno');  ?> :</h5>
                     <ul class="list-unstyled px-0 d-flex gap-2 align-items-center mb-0 lh-2 color-list">
-                        <li data-color="bg-white" class="rounded bg-white border border-info"></li>
-                        <li data-color="bg-info" class="rounded bg-info"></li>
-                        <li data-color="bg-dark" class="rounded bg-dark"></li>
-                        <li data-color="bg-success" class="rounded bg-success"></li>
-                        <li data-color="bg-danger" class="rounded bg-danger"></li>
-                        <li data-color="bg-primary" class="rounded bg-primary"></li>
-                        <li data-color="bg-warning" class="rounded bg-warning"></li>
-                        <li data-color="bg-transparent" class="d-flex justify-content-center rounded bg-transparent border border-info">
+                        <li data-color="bg-white" class="bg-white"></li>
+                        <li data-color="bg-info" class="bg-info"></li>
+                        <li data-color="bg-dark" class="bg-dark"></li>
+                        <li data-color="bg-success" class="bg-success"></li>
+                        <li data-color="bg-danger" class="bg-danger"></li>
+                        <li data-color="bg-primary" class="bg-primary"></li>
+                        <li data-color="bg-warning" class="bg-warning"></li>
+                        <li data-color="bg-transparent" class="d-flex justify-content-center bg-transparent border border-white border-opacity-75">
                             <div style="transform:rotate(45deg)" class="border border-danger border-opacity-75"></div>
                         </li>
                     </ul>
