@@ -1,69 +1,90 @@
 @include media-breakpoint-up(lg) {
+  .product-image__modal {
+    max-height: 80vh;
+    height: 80vh!important;
+    object-fit: cover;
+    width:auto;
+  }
   body {
-    --header-width : 250px;
+    --header-width: 250px;
     display: flex;
     background-color: $secondary;
+
     &.scrolled {
     }
+
     #desktop-header {
       position: fixed;
-      top:50px;
+      top: 50px;
     }
   }
   main {
-    width : calc(100vw - var(--header-width));
+    width: calc(100vw - var(--header-width));
   }
-  #mainHeader , #desktop-header {
-    width : var(--header-width);
+  #mainHeader, #desktop-header {
+    width: var(--header-width);
   }
   .desktop-menu {
     width: 180px;
     max-width: 180px;
   }
   .contact-hero {
-    height:500px;
+    height: 500px;
   }
   .top-lg-25 {
-    top:25% !important;
+    top: 25% !important;
   }
   .translate-n200 {
-    transform:translateY(-200px);
+    transform: translateY(-200px);
   }
   .about-hero {
-    height:130vh
+    height: 130vh
   }
   .product_card {
-    min-width:180px;
+    min-width: 180px;
   }
   .h-lg-35 {
-    height:35% !important;
+    height: 35% !important;
   }
-  .display-lg , .display-lg * {
-    font-size:8rem!important;
-    line-height:0.8;
+  .display-lg, .display-lg * {
+    font-size: 8rem !important;
+    line-height: 0.8;
   }
   .h-lg-50 {
-    height:50% !important
+    height: 50% !important
   }
   .h-lg-75 {
-    height:75% !important;
+    height: 75% !important;
   }
   .h-lg-65 {
-    height:65% !important;
+    height: 65% !important;
   }
 }
+
 @include media-breakpoint-down(lg) {
-  .menu-item-has-children ul.sub-menu button {
-    top: 10px!important;
+  .product-image__modal {
+    height: auto;
+    object-fit: cover;
+    width:100vw;
   }
-  body.rtl .product_card .btn-custom:before {
-    width: 50%!important;
+  .menu-item-has-children ul.sub-menu button {
+    top: 10px !important;
+  }
+  body.rtl .product_card .btn-custom {
+    &:before {
+      width: 50% !important;
+    }
+
+    &:hover::before {
+      width: 10px !important;
+    }
   }
   .wpml-ls-statics-shortcode_actions {
-    margin-top:auto;
-    margin-bottom:20px;
+    margin-top: auto;
+    margin-bottom: 20px;
+
     ul {
-      width:auto!important;
+      width: auto !important;
     }
   }
   #mainHeader {
@@ -73,31 +94,33 @@
   }
   body.rtl {
     #mainHeader {
-    left:20px
+      left: 20px
     }
   }
   .tab-product {
-    overflow-x:scroll;
+    overflow-x: scroll;
+
     .tab-shop {
-      width:max-content;
+      width: max-content;
     }
   }
-  #stalker , #cursor {
-    display:none;
+  #stalker, #cursor {
+    display: none;
   }
   .translate-n200 {
-    transform:translateY(-100px);
+    transform: translateY(-100px);
   }
-  .contact-hero , .about-hero {
-    height:auto;
+  .contact-hero, .about-hero {
+    height: auto;
   }
   .h-35 {
-    height:35%
+    height: 35%
   }
   .opacity-lg-25 {
-    opacity:0.25
+    opacity: 0.25
   }
 }
+
 @include media-breakpoint-down(xxl) {
   .display-lg {
     font-size: 8rem;
@@ -110,42 +133,58 @@
     }
   }
 }
+
 @include media-breakpoint-up(xxl) {
-  .display-lg , .display-lg * {
-    font-size:13rem!important;
-    line-height:0.8;
+  .display-lg, .display-lg * {
+    font-size: 13rem !important;
+    line-height: 0.8;
   }
   body.rtl {
-    .display-lg , .display-lg * {
-      font-size:11rem!important;
-      line-height:1.2;
+    .display-lg, .display-lg * {
+      font-size: 11rem !important;
+      line-height: 1.2;
     }
   }
 }
+
 @include media-breakpoint-down(sm) {
-  .fs-1 { font-size: calc(1.325rem + 1.4vw) !important; }
-  .fs-2 { font-size: calc(1.275rem + 0.8vw) !important; }
-  .fs-3 { font-size: calc(1.25rem + 0.5vw) !important;  }
-  .fs-4 { font-size: calc(1.225rem + 0.2vw) !important; }
-  .fs-5 { font-size: 0.9rem !important;  }
+  .fs-1 {
+    font-size: calc(1.325rem + 1.4vw) !important;
+  }
+  .fs-2 {
+    font-size: calc(1.275rem + 0.8vw) !important;
+  }
+  .fs-3 {
+    font-size: calc(1.25rem + 0.5vw) !important;
+  }
+  .fs-4 {
+    font-size: calc(1.225rem + 0.2vw) !important;
+  }
+  .fs-5 {
+    font-size: 0.9rem !important;
+  }
   .fs-6, p, span {
     font-size: 1rem !important;
     line-height: normal;
   }
-  small, .small { font-size: 0.875rem !important; }
+  small, .small {
+    font-size: 0.875rem !important;
+  }
 }
+
 @include media-breakpoint-up(md) {
 
 }
+
 @include media-breakpoint-down(md) {
-  .display-lg , .display-lg * {
-    font-size:5.5rem!important;
-    line-height:0.8;
+  .display-lg, .display-lg * {
+    font-size: 5.5rem !important;
+    line-height: 0.8;
   }
   body.rtl {
-    .display-lg , .display-lg * {
-      font-size:5rem!important;
-      line-height:1.2;
+    .display-lg, .display-lg * {
+      font-size: 5rem !important;
+      line-height: 1.2;
     }
   }
   .product-card {
@@ -160,23 +199,50 @@
     font-size: $small-font-size !important;
   }
 }
-@media (min-width:2400px){
-  .display-1 { font-size: 8rem!important;  }
-  .display-2 { font-size: 7rem!important;  }
-  .display-3 { font-size: 6rem!important;  }
-  .display-4 { font-size: 5.5rem!important;}
-  .display-5 { font-size: 5rem!important;  }
-  .display-6 { font-size: 4rem!important;  }
-  .fs-1 , h1 { font-size: 5rem!important;  }
-  .fs-2 ,h2 {  font-size: 4rem!important;  }
-  .fs-3 ,h3 {  font-size: 3.5rem!important; }
-  .fs-4 ,h4 { font-size: 2.5rem!important;  }
-  .fs-5 , h5 {font-size: 1.8rem !important; }
-  .fs-6, h6,  p, span, div ,a {
+
+@media (min-width: 2400px) {
+  .display-1 {
+    font-size: 8rem !important;
+  }
+  .display-2 {
+    font-size: 7rem !important;
+  }
+  .display-3 {
+    font-size: 6rem !important;
+  }
+  .display-4 {
+    font-size: 5.5rem !important;
+  }
+  .display-5 {
+    font-size: 5rem !important;
+  }
+  .display-6 {
+    font-size: 4rem !important;
+  }
+  .fs-1, h1 {
+    font-size: 5rem !important;
+  }
+  .fs-2, h2 {
+    font-size: 4rem !important;
+  }
+  .fs-3, h3 {
+    font-size: 3.5rem !important;
+  }
+  .fs-4, h4 {
+    font-size: 2.5rem !important;
+  }
+  .fs-5, h5 {
+    font-size: 1.8rem !important;
+  }
+  .fs-6, h6, p, span, div, a {
     font-size: 1.4rem !important;
     line-height: 1.7;
   }
-  small, .small { font-size: 1rem !important;  }
-  .container { max-width: 1900px; }
+  small, .small {
+    font-size: 1rem !important;
+  }
+  .container {
+    max-width: 1900px;
+  }
 }
 
