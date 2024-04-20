@@ -71,7 +71,7 @@ if ($category_object && !is_wp_error($category_object)) {
                                 <img class="px-0 object-fit w-100 ratio-1" height="200" src="<?php echo the_post_thumbnail_url(); ?>"
                                      alt="<?php echo get_the_title(); ?>">
                                 <div class="d-flex text-white flex-column justify-content-between p-4">
-                                    <h5 class="<?= $cur_lan == 'en' ? '' : 'd-rtl';?>"><?= get_the_title(); ?></h5>
+                                    <h4 class="<?= $cur_lan == 'en' ? '' : 'd-rtl';?>"><?= get_the_title(); ?></h4>
                                     <div class="text-justify <?= $cur_lan == 'en' ? '' : 'd-rtl';?>">
                                         <?= wp_trim_words(get_the_content(), 15); ?>
                                     </div>

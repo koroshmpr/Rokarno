@@ -2,7 +2,7 @@
   .product-image__modal {
     max-height: 80vh;
     height: 80vh!important;
-    object-fit: cover;
+    object-fit: contain;
     width:auto;
   }
   body {

@@ -16,7 +16,7 @@
  */
 
 defined('ABSPATH') || exit;
-
+global $cur_lan;
 // Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
 if (!function_exists('wc_get_gallery_image_html')) {
     return;
@@ -97,7 +97,17 @@ $wrapper_classes = apply_filters(
                 <?php } ?>
 
             </div>
-<!--            <div class="swiper-pagination position-static mt-4"></div>-->
+            <div class="swiper-pagination position-static w-100 d-flex justify-content-center gap-1 mt-3"></div>
+            <div class="position-absolute lazy d-flex bg-white bg-opacity-50 justify-content-center translate-middle-y ms-4 text-primary align-items-center z-2 top-50 start-0 swiper-nav swiper-button-prev rounded-circle">
+                <svg width="20" height="20" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </div>
+            <div class="position-absolute lazy d-flex bg-white bg-opacity-50 justify-content-center translate-middle text-primary align-items-center z-2 top-50 end-0 swiper-nav swiper-button-next rounded-circle">
+                <svg width="20" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </div>
         </div>
     </figure>
     <script>
