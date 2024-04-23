@@ -189,3 +189,4 @@ function modify_project_post_type_labels($args, $post_type)
 }
 
 add_filter('register_post_type_args', 'modify_project_post_type_labels', 10, 2);
+require get_theme_file_path('/inc/search-route.php');

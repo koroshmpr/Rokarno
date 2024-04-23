@@ -53,7 +53,8 @@ main {
 }
 .current-product_cat-ancestor .nav-link:first-child,
 .current_page_parent .nav-link:first-child,
-.current-menu-item > .nav-link:first-child {
+.current-menu-item > .nav-link:first-child,
+.current-product-parent > .nav-link:first-child{
   background-position: 100%;
   &::after {
     transform: scaleX(1);

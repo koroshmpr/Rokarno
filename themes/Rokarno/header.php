@@ -23,11 +23,11 @@
 <header id="mainHeader" class="text-white z-2">
 <?php get_template_part('template-parts/Layout/header');
 
-//if (!is_shop() && !is_category() && !is_product_category() && !is_singular(array('product', 'post'))) {
-//    get_template_part('template-parts/preload/preload-fa');
-//}
+if (!is_search() && !is_shop() && !is_category() && !is_product_category() && !is_singular(array('product', 'post'))) {
+    get_template_part('template-parts/preload/preload-fa');
+}
 ?>
-
+<?php get_template_part('template-parts/search-form'); ?>
 </header>
 <main class="min-vh-100 bg-secondary">
 

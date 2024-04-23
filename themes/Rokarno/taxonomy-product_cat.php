@@ -26,8 +26,8 @@ global $cur_lan;
 
 <section class="py-lg-4">
     <h1 class="text-primary text-opacity-75 pb-lg-3 pt-lg-0 py-3 mb-0 text-center text-lg-<?= $cur_lan == 'en' ? 'end' : 'start';?>"><?= get_the_title(); ?></h1>
-    <section class="row col-lg-11 py-lg-5 align-items-start justify-content-center justify-content-lg-start">
-        <div class="col-lg-9 row row-cols-lg-5 row-cols-2 justify-content-lg-start justify-content-center">
+    <section class="row col-12 mx-auto py-lg-5 align-items-start justify-content-center justify-content-lg-start">
+        <div class="col-xxl-9 col-xl-8 row row-cols-md-3 row-cols-xxl-5 row-cols-2 justify-content-lg-start justify-content-center">
             <?php
             // Custom query to retrieve products associated with the current category
             $args = array(
@@ -66,7 +66,7 @@ global $cur_lan;
         get_template_part('template-parts/products/current-category-sidebar');
         ?>
         </div>
-        <article class="d-lg-none col-11 text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
+        <article class="d-xl-none col-11 text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
             <?= get_field('shop_description', 'option'); ?>
         </article>
     </section>

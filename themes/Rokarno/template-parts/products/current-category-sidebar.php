@@ -1,5 +1,5 @@
-<aside class="row justify-content-center col-lg-3 col-11 px-lg-4 px-2 order-first order-lg-last mb-5 mb-lg-0">
-    <div class="row column-gap-3 column-gap-lg-0 p-2 pb-1 border border-white border-opacity-25 justify-content-lg-end justify-content-center" id="category-dropdown">
+<aside class="row justify-content-center col-xl-4 col-xxl-3 col-12 px-lg-4 px-2 order-first order-xl-last mb-5 mb-xl-0">
+    <div class="row column-gap-3 column-gap-xl-0 p-2 pb-1 border border-white border-opacity-25 justify-content-xl-end justify-content-center" id="category-dropdown">
         <?php
         global $cur_lan;
         $current_category_id = get_queried_object_id(); // Get the current category ID
@@ -15,7 +15,7 @@
             echo '<div class="my-1 col-12 border-' . ($cur_lan == 'en' ? 'end' : 'start') . ' bg-opacity-25 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
             echo '<h6 class="category-title fw-bold mb-0 fs-6"><a href="' . esc_url(get_term_link($parent_category, $parent_category->taxonomy)) . '">' . $parent_category->name . '</a></h6>';
             echo '</div>';
-            echo '<div class="my-1 col-lg-11 col-auto border-' . ($cur_lan == 'en' ? 'end' : 'start') . ' ' . $current_class . ' bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+            echo '<div class="my-1 col-xl-11 col-auto border-' . ($cur_lan == 'en' ? 'end' : 'start') . ' ' . $current_class . ' bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
             echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $current_category->name . '</h6>';
             echo '</div>';
 
@@ -38,14 +38,14 @@
 
         if ($child_categories) {
             foreach ($child_categories as $child_category) {
-                echo '<a href="' . esc_url(get_term_link($child_category, $child_category->taxonomy)) . '" class="my-1 col-lg-11 col-auto bg-opacity-25 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
+                echo '<a href="' . esc_url(get_term_link($child_category, $child_category->taxonomy)) . '" class="my-1 col-xl-11 col-auto bg-opacity-25 bg-white text-primary d-flex justify-content-between align-items-center p-3 overflow-hidden">';
                 echo '<h6 class="category-title fw-bold mb-0 fs-6">' . $child_category->name . '</h6>';
                 echo '</a>';
             }
         }
         ?>
     </div>
-    <article class="d-none d-lg-inline text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
+    <article class="d-none d-xl-inline text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
         <?= get_field('shop_description', 'option'); ?>
     </article>
 </aside>

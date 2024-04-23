@@ -29,6 +29,7 @@
     endif;
     ?>
 <?php do_action('wpml_add_language_selector'); ?>
+<?php get_template_part('template-parts/search-button'); ?>
 </nav>
 <nav id="mobileMenu" class="d-lg-none navbar py-0">
     <button class="btn p-0 border-0 text-white" type="button" aria-labelledby="offcanvasRight" data-bs-toggle="offcanvas"
@@ -62,6 +63,7 @@
             endif;
             ?>
             <?php do_action('wpml_add_language_selector'); ?>
+            <?php get_template_part('template-parts/search-button'); ?>
             <a class="navbar-brand m-0 col-2 text-center" href="<?= home_url() ?>">
                 <?php
                 $logoType = get_field('logo_type', 'option');
@@ -76,5 +78,4 @@
             </a>
         </div>
     </div>
-
 </nav>
