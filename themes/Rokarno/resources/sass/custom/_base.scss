@@ -120,3 +120,6 @@ a , .no-decoration {
  @media print {
    .hideprint {display: none!important;}
  }
+ .bg-cover {
+   background-size: cover;
+ }

@@ -1,4 +1,5 @@
 <?php
+// Product
 $slide4 = get_field('slide-04');
 global $cur_lan;
 ?>
@@ -8,8 +9,8 @@ global $cur_lan;
             <?php
             $args = array(
                 'class' => '',
-                'fill-color' => '#9CCAAA',
-                'fill-opacity' => '0.8'
+                'fill-color' => $slide4['tileColor-1'] ?? '#9CCAAA',
+                'fill-opacity' => $slide4['tileColor-1'] ? '' : '0.8'
             );
             get_template_part('template-parts/svg/tales/tale', null, $args);
             ?>
@@ -18,8 +19,8 @@ global $cur_lan;
             <?php
             $args = array(
                 'class' => 'translate-x-100',
-                'fill-color' => '#9CCAAA',
-                'fill-opacity' => '0.3'
+                'fill-color' => $slide4['tileColor-2'] ?? '#9CCAAA',
+                'fill-opacity' => $slide4['tileColor-2'] ? '' : '0.3'
             );
             get_template_part('template-parts/svg/tales/tale', null, $args);
             ?>
@@ -28,8 +29,8 @@ global $cur_lan;
             <?php
             $args = array(
                 'class' => '',
-                'fill-color' => '#CEC8C0',
-                'fill-opacity' => '0.3'
+                'fill-color' => $slide4['tileColor-3'] ?? '#CEC8C0',
+                'fill-opacity' => $slide4['tileColor-3'] ? '' : '0.3'
             );
             get_template_part('template-parts/svg/tales/tale', null, $args);
             ?>

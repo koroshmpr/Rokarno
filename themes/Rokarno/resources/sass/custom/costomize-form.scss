@@ -33,14 +33,27 @@
   gap: 1px;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
+  align-items: center;
   overflow: hidden;
   justify-content: center;
-  img {
+  picture {
+    position:relative;
     transition: all 0.3s ease-out;
     aspect-ratio: 1;
     width:calc(100% / 12 - 1px );
+    height:calc(100% / 12 - 1px );
+    background-color:white;
     object-fit: cover;
+    .tile-img {
+      width: 100%;
+    }
+    .wall-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
   }
   img.Rectangle-tile {
     width:calc(100% / 5 - 1px );
@@ -82,4 +95,9 @@
 }
 .wall-img , .tile-img {
   transform-origin: center center;
+}
+.wall {
+  .column__wall {
+    gap:1px
+  }
 }

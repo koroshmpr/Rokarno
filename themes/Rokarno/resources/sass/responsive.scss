@@ -199,6 +199,12 @@
     font-size: $small-font-size !important;
   }
 }
+@media (min-width: 1600px) {
+  .row-cols-xxxl-5 > * {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+}
 
 @media (min-width: 2400px) {
   .display-1 {

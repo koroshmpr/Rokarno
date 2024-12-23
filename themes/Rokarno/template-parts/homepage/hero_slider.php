@@ -4,8 +4,8 @@
         <?php
         get_template_part('template-parts/homepage/hero-slides/slide-01');
         get_template_part('template-parts/homepage/hero-slides/slide-02');
-        get_template_part('template-parts/homepage/hero-slides/slide-03');
         get_template_part('template-parts/homepage/hero-slides/slide-04');
+        get_template_part('template-parts/homepage/hero-slides/slide-03');
         get_template_part('template-parts/homepage/hero-slides/slide-05');
         ?>
     </div>

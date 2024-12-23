@@ -52,6 +52,7 @@
         ?>
     </div>
     <article class="text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
-        <?= get_field('shop_description' , 'option'); ?>
+        <?=
+        get_field('shop_description' , 'option'); ?>
     </article>
 </aside>

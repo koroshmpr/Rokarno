@@ -18,7 +18,6 @@
             </div>
         </form>
     </div>
-
     <div class="d-grid col-11 column-gap-3 d-lg-flex align-items-center border-bottom border-2 border-info">
         <p class="text-white mb-0 text-opacity-75"><?= esc_html__('Results for :', 'rokarno'); ?></p>
         <div class="overflow-hidden">
@@ -32,7 +31,7 @@
 
     // Create a new WP_Query for the current post type (if filter is applied)
     $args = array(
-        'post_type'      => $post_type ? $post_type : array('post', 'portfolio', 'services', 'product'),
+        'post_type'      => $post_type ? $post_type : array('portfolio', 'services', 'product'),
         's'              => get_search_query(),
         'paged'          => $paged,
         'posts_per_page' => 12, // Number of posts per page

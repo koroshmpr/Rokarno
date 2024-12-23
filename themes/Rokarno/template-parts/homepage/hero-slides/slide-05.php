@@ -1,4 +1,5 @@
 <?php
+// News
 $slide5 = get_field('slide-05');
 global $cur_lan;
 $selected_cat = $slide5['selected_cat'];
@@ -20,8 +21,8 @@ if ($category_object && !is_wp_error($category_object)) {
             <?php
             $args = array(
                 'class' => '',
-                'fill-color' => '#9CCAAA',
-                'fill-opacity' => '0.8'
+                'fill-color' => $slide5['tileColor-1'] ?? '#9CCAAA',
+                'fill-opacity' => $slide5['tileColor-1'] ? '' : '0.8'
             );
             get_template_part('template-parts/svg/tales/tale', null, $args);
             ?>
@@ -30,8 +31,8 @@ if ($category_object && !is_wp_error($category_object)) {
             <?php
             $args = array(
                 'class' => 'translate-x-100',
-                'fill-color' => '#9CCAAA',
-                'fill-opacity' => '0.3'
+                'fill-color' => $slide5['tileColor-2'] ?? '#9CCAAA',
+                'fill-opacity' => $slide5['tileColor-1'] ? '' : '0.3'
             );
             get_template_part('template-parts/svg/tales/tale', null, $args);
             ?>

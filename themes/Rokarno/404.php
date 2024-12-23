@@ -13,7 +13,7 @@ get_header();
         <h3 data-aos="zoom-in" data-aos-delay="150">Your page has been deleted!</h3>
         <p data-aos="zoom-in" data-aos-delay="200">You can use the return button to go back to the main page of the website</p>
         <div class="overflow-hidden mt-5">
-            <a data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" href="/" class="btn bg-secondary text-primary fw-bold shadow-sm">Return
+            <a data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" href="/" class="btn bg-secondary text-primary px-4 py-2 fw-bold shadow-sm">Return
                 to the main page</a>
         </div>
     </article>

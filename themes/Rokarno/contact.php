@@ -27,6 +27,10 @@ get_header(); ?>
                         <?= esc_html__('Call Us!', 'rokarno'); ?>
                         <span><?= get_field('phone', 'option'); ?></span>
                     </a>
+                    <a class="bg-dark bg-opacity-10 col-auto bg-opacity-10 p-3 text-dark text-opacity-75 d-flex justify-content-center align-items-center gap-1"
+                       href="tel:<?= get_field('phone', 'option'); ?>" data-aos="zoom-in">
+                        <span><?= get_field('mobile', 'option'); ?></span>
+                    </a>
                 </div>
                 <div class="p-4 py-lg-0 row gap-3 justify-content-center">
                     <h2 class="text-primary fw-bold display-3 text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -40,6 +44,10 @@ get_header(); ?>
                        href="tel:<?= get_field('phone_factory', 'option'); ?>" data-aos="zoom-in">
                         <?= esc_html__('Call Us!', 'rokarno'); ?>
                         <span><?= get_field('phone_factory', 'option'); ?> </span>
+                    </a>
+                    <a class="bg-dark bg-opacity-10 col-auto bg-opacity-10 p-3 text-dark text-opacity-75 d-flex justify-content-center align-items-center gap-1"
+                       href="tel:<?= get_field('phone_factory', 'option'); ?>" data-aos="zoom-in">
+                        <span><?= get_field('mobile_factory', 'option'); ?> </span>
                     </a>
                 </div>
             </div>

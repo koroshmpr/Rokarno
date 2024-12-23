@@ -1,18 +1,19 @@
 <?php
+// Home
 $slide1 = get_field('slide-01');
 global $cur_lan;
 ?>
 <div class="swiper-slide d-flex flex-column align-items-xxl-<?= $cur_lan == 'en' ? 'start' : 'end';?> align-items-center">
     <div class="position-absolute <?= $cur_lan == 'en' ? 'start-0' : 'end-0';?> top-0 col-2 h-auto d-none d-lg-inline">
-        <div class="w-100 animate-img animate-img-x vh-65 object-fit z-2" style="background: url('<?php echo esc_url($slide1['img']['url'] ?? ''); ?>');"></div>
+        <div class="w-100 animate-img animate-img-x bg-cover vh-65 object-fit z-2" style="background: url('<?php echo esc_url($slide1['img']['url'] ?? ''); ?>');"></div>
            <div class="position-relative">
                <div class="position-absolute <?= $cur_lan == 'en' ? 'end-0' : 'start-0';?> d-flex flex-column opacity-lg-25" style="top:-150px;">
                 <span data-aos="zoom-in" data-aos-delay="800" data-aos-duration="600">
                     <?php
                     $args = array(
                         'class' => 'translate-x-100',
-                        'fill-color' => '#9CCAAA',
-                        'fill-opacity' => '0.8'
+                        'fill-color' => $slide1['tileColor-1'] ?? '#9CCAAA',
+                        'fill-opacity' => $slide1['tileColor-1'] ? '' : '0.8'
                     );
                     get_template_part('template-parts/svg/tales/tale', null, $args);
                     ?>
@@ -21,8 +22,8 @@ global $cur_lan;
                     <?php
                     $args = array(
                         'class' => '',
-                        'fill-color' => '#9CCAAA',
-                        'fill-opacity' => '0.3'
+                        'fill-color' => $slide1['tileColor-2'] ??'#9CCAAA',
+                        'fill-opacity' => $slide1['tileColor-2'] ? '' : '0.3'
                     );
                     get_template_part('template-parts/svg/tales/tale', null, $args);
                     ?>
@@ -31,8 +32,8 @@ global $cur_lan;
                         <?php
                         $args = array(
                             'class' => 'translate-x-100',
-                            'fill-color' => '#CEC8C0',
-                            'fill-opacity' => '0.3'
+                            'fill-color' => $slide1['tileColor-3'] ?? '#CEC8C0',
+                            'fill-opacity' => $slide1['tileColor-3'] ? '' : '0.3'
                         );
                         get_template_part('template-parts/svg/tales/tale', null, $args);
                         ?>

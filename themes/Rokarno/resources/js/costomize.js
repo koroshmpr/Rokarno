@@ -1,4 +1,5 @@
-jQuery(document).ready(function ($) {
+import $ from 'jquery';
+$(document).ready(function () {
     let lan = currentLanguage.language ;
     let tileNumber = 144;
     let selectSize = '';
@@ -250,6 +251,7 @@ jQuery(document).ready(function ($) {
                     }
 
                     // Create a new image element with the 'tile-img' class and 'size' class
+                    let picture = $('<picture>');
                     let imgElement = $('<img class="tile-img">')
                         .attr('src', url)
                         .attr('alt', selectedDesignsWithChances[j].design)
@@ -262,7 +264,8 @@ jQuery(document).ready(function ($) {
                         selectedDesignsWithChances[j].type === 'brush' ? rotateClasses :  ''
                     );
                     // Append the image to #tile
-                    tileContainer.append(imgElement);
+                    picture.append(imgElement);
+                    tileContainer.append(picture);
                     break;
                 }
             }
@@ -282,7 +285,7 @@ jQuery(document).ready(function ($) {
         wallContainer.empty();
         // Repeat the selected images with chances to fill the #wall container for a 5x5 grid
         for (let col = 0; col < 5; col++) {
-            let colElement = $('<div class="row mx-0 px-0">');
+            let colElement = $('<div class="row column__wall mx-0 px-0">');
             for (let row = 0; row < 5; row++) {
                 let tileElement = $('<div class="wall-tile px-0">');
                 for (let i = 0; i < tileNumber; i++) {
@@ -321,6 +324,7 @@ jQuery(document).ready(function ($) {
                                 }
                             }
                             // Create a new image element
+                            let picture = $('<picture>');
                             let imgElement = $('<img class="wall-img">')
                                 .attr('src', url)
                                 .attr('alt', selectedDesign[j].design)
@@ -333,7 +337,8 @@ jQuery(document).ready(function ($) {
                                         '' // Default class if neither 'simple' nor 'composition'
                             );
                             // Append the image to the current tile
-                            tileElement.append(imgElement);
+                            picture.append(imgElement);
+                            tileElement.append(picture);
                             break;
                         }
                     }

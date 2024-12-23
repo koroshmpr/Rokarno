@@ -1,11 +1,12 @@
 <aside class="row justify-content-center col-xl-4 col-xxl-3 col-12 px-lg-4 px-2 order-first order-xl-last mb-5 mb-xl-0">
-    <div class="row column-gap-3 column-gap-xl-0 p-2 pb-1 border border-white border-opacity-25 justify-content-xl-end justify-content-center" id="category-dropdown">
+    <div class="row column-gap-3 column-gap-xl-0 p-2 pb-1 border border-white border-opacity-25 justify-content-xl-end justify-content-center"
+         id="category-dropdown">
         <?php
         global $cur_lan;
         $current_category_id = get_queried_object_id(); // Get the current category ID
         // Get the current category
         $current_category = get_term($current_category_id, 'product_cat');
-        $current_class = 'border-5 border-primary border-opacity-75 bg-opacity-75' ;
+        $current_class = 'border-5 border-primary border-opacity-75 bg-opacity-75';
         // If the current category is a child category, get all sibling categories
         if ($current_category->parent != 0) {
             $parent_category_id = $current_category->parent;
@@ -45,7 +46,18 @@
         }
         ?>
     </div>
-    <article class="d-none d-xl-inline text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
-        <?= get_field('shop_description', 'option'); ?>
+    <article
+            class="d-none d-xl-inline text-primary text-opacity-75 shadow-sm bg-white bg-opacity-10 p-3 mt-3 small border border-white border-opacity-25">
+        <?php
+        $term_description = term_description($current_category_id);
+        if (!empty($term_description)) {
+            // Display the description of the current product category
+            echo $term_description;
+        } else {
+            // Fallback to the shop description from the options page
+            echo get_field('shop_description', 'option');
+        }
+        ?>
+
     </article>
 </aside>
